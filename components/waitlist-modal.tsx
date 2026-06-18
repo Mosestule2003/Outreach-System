@@ -110,7 +110,7 @@ export function WaitlistModal() {
       />
 
       <div className="relative z-50 flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-        <div className="overflow-y-auto px-10 pb-10 pt-9 sm:px-12">
+        <div className="overflow-y-auto px-10 pb-10 pt-9 sm:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
           {/* Close */}
           <button
