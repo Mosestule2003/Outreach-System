@@ -1,6 +1,4 @@
-'use client'
-
-import { useWaitlist } from './waitlist-context'
+import { WaitlistButton } from './waitlist-button'
 
 const FOOTER_LINKS = [
   {
@@ -30,7 +28,6 @@ const FOOTER_LINKS = [
 ]
 
 export function SiteFooter() {
-  const { openWaitlist } = useWaitlist()
   return (
     <footer className="border-t border-border px-4 py-16">
       <div className="mx-auto max-w-6xl">
@@ -55,12 +52,11 @@ export function SiteFooter() {
                 {col.links.map((link) => (
                   <li key={link.label}>
                     {link.label === 'Join waitlist' ? (
-                      <button
-                        onClick={openWaitlist}
+                      <WaitlistButton
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
-                      </button>
+                      </WaitlistButton>
                     ) : (
                       <a
                         href={link.href}

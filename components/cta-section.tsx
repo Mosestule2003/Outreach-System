@@ -1,8 +1,6 @@
-'use client'
-
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { useWaitlist } from './waitlist-context'
+import { WaitlistButton } from './waitlist-button'
 
 function DemoCard() {
   return (
@@ -34,8 +32,6 @@ function DemoCard() {
 }
 
 function WaitlistCard() {
-  const { openWaitlist } = useWaitlist()
-  
   return (
     <div id="waitlist" className="scroll-mt-24 flex h-full flex-col justify-between rounded-3xl border border-border bg-card p-8 sm:p-10">
       <div>
@@ -50,12 +46,11 @@ function WaitlistCard() {
       </div>
 
       <div className="mt-8">
-        <button
-          onClick={openWaitlist}
+        <WaitlistButton
           className="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02] sm:w-auto"
         >
           Join waitlist
-        </button>
+        </WaitlistButton>
         <p className="mt-4 text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
       </div>
     </div>

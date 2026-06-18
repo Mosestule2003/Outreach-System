@@ -1,12 +1,9 @@
-'use client'
-
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { useWaitlist } from './waitlist-context'
+import { WaitlistButton } from './waitlist-button'
 import { HeroDashboardIllustration } from './illustrations'
 
 export function Hero() {
-  const { openWaitlist } = useWaitlist()
   return (
     <section id="top" className="relative overflow-hidden px-4 pt-32 sm:pt-40">
       {/* soft background wash */}
@@ -17,13 +14,12 @@ export function Hero() {
 
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
-          <button
-            onClick={openWaitlist}
+          <WaitlistButton
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium tracking-wide text-muted-foreground shadow-sm transition-colors hover:text-foreground"
           >
             <span className="flex size-1.5 rounded-full bg-accent" />
             FOR ECOMMERCE &amp; DTC BRANDS · NOW IN PRIVATE BETA
-          </button>
+          </WaitlistButton>
         </Reveal>
 
         <Reveal delay={80}>
@@ -37,12 +33,11 @@ export function Hero() {
 
         <Reveal delay={240}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button
-              onClick={openWaitlist}
+            <WaitlistButton
               className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02]"
             >
               Request early access
-            </button>
+            </WaitlistButton>
             <a
               href="#how-it-works"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
