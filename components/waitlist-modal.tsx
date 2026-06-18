@@ -153,42 +153,42 @@ export function WaitlistModal() {
           </button>
 
           {/* Header */}
-          <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
-            Get early access
-          </p>
-          <h3 className="mt-2 text-2xl font-bold text-gray-900">
-            Apply for early access
-          </h3>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-gray-500">
-            We&apos;re onboarding a limited first cohort of ecommerce &amp; DTC brands.
-            Fill this in and we&apos;ll review your fit within 48 hours.
-          </p>
+          {(status === 'idle' || status === 'loading') && (
+            <>
+              <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                Get early access
+              </p>
+              <h3 className="mt-2 text-2xl font-bold text-gray-900">
+                Apply for early access
+              </h3>
+            </>
+          )}
 
           {status === 'done' ? (
-            <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-6 text-center">
-              <span className="flex size-11 items-center justify-center rounded-full bg-black text-white">
-                <Check className="size-5" />
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <span className="flex size-16 items-center justify-center rounded-full bg-black text-white">
+                <Check className="size-7" />
               </span>
-              <p className="mt-1 font-medium text-gray-900">Application received.</p>
-              <p className="text-sm text-gray-500">
+              <h3 className="mt-6 text-2xl font-bold text-gray-900">Application received</h3>
+              <p className="mt-2 text-base text-gray-500">
                 We&apos;ll review your fit and be in touch within 48 hours.
               </p>
               <button
                 onClick={closeWaitlist}
-                className="mt-3 w-full rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-80"
+                className="mt-8 w-full max-w-sm rounded-lg bg-black px-6 py-3.5 text-base font-medium text-white transition-opacity hover:opacity-80"
               >
                 Close
               </button>
             </div>
           ) : status === 'exists' ? (
-            <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-6 text-center">
-              <span className="flex size-11 items-center justify-center rounded-full bg-gray-200 text-gray-600">
-                <X className="size-5" />
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <span className="flex size-16 items-center justify-center rounded-full bg-gray-100 text-gray-500">
+                <X className="size-7" />
               </span>
-              <p className="mt-1 font-medium text-gray-900">You are already on the waitlist</p>
+              <h3 className="mt-6 text-2xl font-bold text-gray-900">You are already on the waitlist</h3>
               <button
                 onClick={closeWaitlist}
-                className="mt-3 w-full rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-80"
+                className="mt-8 w-full max-w-sm rounded-lg bg-black px-6 py-3.5 text-base font-medium text-white transition-opacity hover:opacity-80"
               >
                 Close
               </button>
