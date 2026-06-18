@@ -56,6 +56,15 @@ export function WaitlistModal() {
       setRoleOther('')
       setChallenge('')
       setChallengeOther('')
+      
+      // Lock body scroll to prevent background scroll chaining and keyboard layout thrashing
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    
+    return () => {
+      document.body.style.overflow = ''
     }
   }, [isOpen])
 
@@ -110,7 +119,7 @@ export function WaitlistModal() {
       />
 
       <div className="relative z-50 flex max-h-[92vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-        <div className="overflow-y-auto px-10 pb-10 pt-9 sm:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="overflow-y-auto overscroll-contain px-10 pb-10 pt-9 sm:px-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
 
           {/* Close */}
           <button
