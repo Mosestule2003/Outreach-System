@@ -9,12 +9,12 @@ const STEPS = [
   {
     n: '02',
     title: 'Route every decision through it',
-    body: 'Connect Shopify and your helpdesk. Every ticket and return is checked against your logic, surfaced inside the reply your agent is already writing.',
+    body: 'Connect your ecommerce store and helpdesk. Every ticket and return is checked against your logic, surfaced inside the reply your agent is already writing — no separate tab to open.',
   },
   {
     n: '03',
     title: 'Own and log the edge cases',
-    body: 'Exceptions get an owner and a nudge. Deviations are logged with a reason. Within two weeks, your CX lead stops being the final word on everything.',
+    body: 'Every exception gets an assigned owner and a nudge. Deviations are logged with a reason. Within two weeks, your CX lead stops being the final word on everything — and you stop getting pulled in.',
   },
 ]
 
@@ -25,7 +25,7 @@ export function HowItWorks() {
         <Reveal className="max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">How it works</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Live in days, not quarters.
+            Your policy, embedded in your workflow. Live in days.
           </h2>
         </Reveal>
 

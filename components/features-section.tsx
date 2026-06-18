@@ -1,21 +1,19 @@
 import { Reveal } from '@/components/reveal'
-import Image from 'next/image'
 import { Sparkles, Users } from 'lucide-react'
+import { DecisionDelegationIllustration, CustomerContextIllustration } from './illustrations'
 
 const FEATURES = [
   {
-    title: 'Automated task assignment',
-    description: 'Every exception is assigned to the right owner automatically, based on predefined rules. No more guessing who should handle a tricky refund.',
+    title: 'Every exception gets an owner — automatically.',
+    description: 'No more "who handles this?" in Slack. When a ticket hits an edge case, rezlv assigns it to the right person based on your rules — with a nudge, a deadline, and a log of how it was resolved. Your CX lead stops being the final word on everything.',
     icon: <Users className="size-5 text-accent" />,
-    image: '/feature_decision_delegation.png',
-    alt: 'Decision delegation assigning a task to Sarah (CX Lead)',
+    illustration: <DecisionDelegationIllustration />,
   },
   {
-    title: 'Centralized customer context',
-    description: 'A comprehensive view of a customer’s profile, combining data from Shopify and your helpdesk. Access order history, interactions, and tags in one place.',
+    title: 'Full customer picture, right where your team decides.',
+    description: 'rezlv pulls order history, open tickets, conversation history, satisfaction scores, and VIP tags from your store and helpdesk into a single view — surfaced inside the reply your agent is already writing, not in a separate tab they have to remember to check.',
     icon: <Sparkles className="size-5 text-accent" />,
-    image: '/feature_customer_context.png',
-    alt: 'Centralized customer profile showing Shopify and helpdesk data',
+    illustration: <CustomerContextIllustration />,
   },
 ]
 
@@ -26,7 +24,7 @@ export function FeaturesSection() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Features</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Everything you need to resolve tickets faster.
+            The right call, by default. Every time, for every agent.
           </h2>
         </Reveal>
 
@@ -44,13 +42,7 @@ export function FeaturesSection() {
                 <div className="flex-[1.5]">
                   <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background p-2 shadow-xl">
                     <div className="overflow-hidden rounded-2xl border border-border/50">
-                      <Image
-                        src={feature.image}
-                        alt={feature.alt}
-                        width={1600}
-                        height={1000}
-                        className="w-full object-cover"
-                      />
+                      {feature.illustration}
                     </div>
                   </div>
                 </div>

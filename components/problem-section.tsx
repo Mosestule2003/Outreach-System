@@ -3,18 +3,18 @@ import { Reveal } from '@/components/reveal'
 const PROBLEMS = [
   {
     stat: 'Two agents,',
-    line: 'two different refund answers.',
-    body: 'New hires guess. Veterans improvise. The same return gets approved on Monday and denied on Friday.',
+    line: 'two different answers to the same ticket.',
+    body: 'New hires guess from old tickets. Veterans improvise. The same return gets approved on Monday and denied on Friday — and the customer always notices.',
   },
   {
     stat: 'Nobody owns',
     line: 'the exception.',
-    body: 'Edge cases get tossed into Slack, the CX lead becomes the final word on everything, and decisions stall.',
+    body: 'Edge cases get tossed into Slack. Your CX lead becomes the final word on everything. Decisions stall, things fall through cracks, and founders get pulled back in.',
   },
   {
-    stat: 'Off-policy replies',
-    line: 'promise what you can’t deliver.',
-    body: 'Autonomous bots offer refunds you’d never approve. One bad call becomes a public, expensive problem.',
+    stat: 'Your AI agent',
+    line: "is making promises you wouldn't approve.",
+    body: "Unconstrained bots offer refunds, extensions, and exceptions your policy doesn't cover. One off-policy reply becomes a public, expensive problem.",
   },
 ]
 
@@ -25,12 +25,12 @@ export function ProblemSection() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">The messy middle</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Your returns desk runs on memory and guesswork.
+            You&apos;ve bought the tools. The ownership gaps are still there.
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Between 7 and 15 people, the policy lives in someone&apos;s head. That works
-            until the day it doesn&apos;t — and a single inconsistent refund turns into a
-            scandal you can&apos;t unsee.
+            Past $500K and 7&ndash;10 people, founder proximity breaks. Teams add helpdesk macros, Notion SOPs,
+            Slack pins &mdash; and still end up inconsistent. The tools track work. Nobody enforces who owns the
+            decision when it matters.
           </p>
         </Reveal>
 

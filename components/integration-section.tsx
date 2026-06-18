@@ -1,5 +1,5 @@
 import { Reveal } from '@/components/reveal'
-import Image from 'next/image'
+import { IntegrationIllustration } from './illustrations'
 
 export function IntegrationSection() {
   return (
@@ -8,23 +8,19 @@ export function IntegrationSection() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Integration</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Plug into Shopify and Gorgias in minutes.
+            Works inside your store and helpdesk. No new tab required.
           </h2>
           <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
-            Connect rezlv with your existing stack, import data, configure rules, and enable real-time syncing seamlessly.
+            rezlv connects to your ecommerce platform and helpdesk via API — pulling customer profiles,
+            order history, ticket context, satisfaction scores, and VIP tags into a single decision view
+            your agents see at the exact moment they need it. Your stack stays the same. Your decisions get consistent.
           </p>
         </Reveal>
 
         <Reveal delay={100} className="mt-16">
           <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-border/50 bg-card p-2 shadow-2xl sm:p-4">
             <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background">
-              <Image
-                src="/integration_workflow.png"
-                alt="Step-by-step process of integrating rezlv with Shopify and Gorgias"
-                width={2400}
-                height={1600}
-                className="w-full object-cover"
-              />
+              <IntegrationIllustration />
             </div>
           </div>
         </Reveal>

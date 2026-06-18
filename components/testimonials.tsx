@@ -1,32 +1,23 @@
 import { Reveal } from '@/components/reveal'
-import Image from 'next/image'
+import { TestimonialsIllustration } from './illustrations'
 
 export function Testimonials() {
   return (
     <section className="bg-muted/30 px-4 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Social Proof</p>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Early feedback</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Trusted by growing Shopify brands.
+            What founders building with us are saying.
           </h2>
           <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
-            See how founders are streamlining their operations and scaling efficiently with rezlv.
+            We&apos;re in private beta with a small cohort of ecommerce brands helping shape the product.
+            Here&apos;s what they&apos;re telling us.
           </p>
         </Reveal>
 
         <Reveal delay={100} className="mt-16">
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] border border-border/50 bg-card p-2 shadow-2xl sm:p-4">
-            <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background">
-              <Image
-                src="/testimonial_social_proof.png"
-                alt="Testimonial from a Shopify founder showing metrics like reduced response times and efficiency gains"
-                width={2400}
-                height={1600}
-                className="w-full object-cover"
-              />
-            </div>
-          </div>
+          <TestimonialsIllustration />
         </Reveal>
       </div>
     </section>

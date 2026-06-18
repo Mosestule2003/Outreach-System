@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { useWaitlist } from './waitlist-context'
+import { HeroDashboardIllustration } from './illustrations'
 
 export function Hero() {
   const { openWaitlist } = useWaitlist()
@@ -22,16 +22,16 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium tracking-wide text-muted-foreground shadow-sm transition-colors hover:text-foreground"
           >
             <span className="flex size-1.5 rounded-full bg-accent" />
-            FOR SHOPIFY &amp; DTC BRANDS · NOW IN PRIVATE BETA
+            FOR ECOMMERCE &amp; DTC BRANDS · NOW IN PRIVATE BETA
           </button>
         </Reveal>
 
         <Reveal delay={80}>
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
-            The AI decision layer for Shopify customer service.
+            Your brand runs on tribal knowledge. That breaks when you scale.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Seamlessly integrate with Shopify and Gorgias to automate task assignment, enforce brand policies, and empower your team to get every decision right.
+            rezlv embeds your returns and CX decision logic directly into your ecommerce store and helpdesk — so every agent makes the right call by default, every exception gets an owner, and you stop being the final word on everything.
           </p>
         </Reveal>
 
@@ -41,7 +41,7 @@ export function Hero() {
               onClick={openWaitlist}
               className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02]"
             >
-              Get Started
+              Request early access
             </button>
             <a
               href="#how-it-works"
@@ -54,7 +54,7 @@ export function Hero() {
 
         <Reveal delay={320}>
           <p className="mt-5 text-xs text-muted-foreground">
-            No credit card · 20-minute walkthrough · Design-partner pricing
+            No credit card · 20-minute walkthrough · Founder-priced for early brands
           </p>
         </Reveal>
       </div>
@@ -68,14 +68,7 @@ export function Hero() {
           />
           <div className="relative mx-auto mt-20 max-w-5xl rounded-[2rem] border border-border/50 bg-card p-2 shadow-2xl sm:p-4">
             <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background">
-              <Image
-                src="/hero_dashboard_mockup.png"
-                alt="rezlv dashboard integrating Shopify and Gorgias"
-                width={2400}
-                height={1600}
-                className="w-full object-cover"
-                priority
-              />
+              <HeroDashboardIllustration />
             </div>
           </div>
         </div>

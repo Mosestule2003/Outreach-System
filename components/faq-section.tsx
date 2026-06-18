@@ -12,7 +12,7 @@ const FAQS = [
   },
   {
     q: 'What does it integrate with?',
-    a: 'rezlv connects to Shopify and one helpdesk (like Gorgias or Zendesk) to start. We deliberately keep the surface narrow so setup is fast and the decision logic stays sharp.',
+    a: 'rezlv connects to your ecommerce store and your helpdesk — currently supporting Shopify, Gorgias, and Zendesk. We pull customer profiles, full ticket and conversation history, agent assignments, CSAT scores, and order data into a single decision view. We deliberately keep the integration surface narrow so setup is fast and the decision logic stays sharp.',
   },
   {
     q: 'How long does setup take?',
@@ -20,11 +20,11 @@ const FAQS = [
   },
   {
     q: 'Who is rezlv for?',
-    a: 'Shopify and DTC brands with roughly 7–15 people and a real returns/CX volume — especially teams that have just hit a painful, visible inconsistency and want the right call to happen by default.',
+    a: 'Ecommerce and DTC brands at the $500K–$2M stage with 7–15 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. rezlv is especially sharp for teams that have just hit a visible, costly inconsistency (a refund scandal, a viral off-brand reply, a key CX person leaving) and need the right call to happen by default going forward.',
   },
   {
-    q: 'How is this different from an AI chatbot?',
-    a: 'Chatbots try to answer everything autonomously and often go off-policy. rezlv is a decision and accountability layer: it enforces your rules, assigns ownership of every exception, and logs deviations — with a human in the loop.',
+    q: 'How is this different from my helpdesk AI or a chatbot?',
+    a: 'Your helpdesk unifies the inbox — but agents still need your brand\'s judgment to answer correctly. Chatbots try to resolve everything autonomously and regularly make promises your policy doesn\'t cover. rezlv is the decision and accountability layer that sits on top: it enforces your specific rules, surfaces the right call inside the reply your agent is writing, assigns ownership of every exception, and logs deviations — with a human approving before anything goes out.',
   },
 ]
 

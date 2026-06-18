@@ -43,7 +43,7 @@ export function SiteFooter() {
               <span className="text-lg font-semibold tracking-tight">rezlv</span>
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              The decision layer for returns and CX exceptions. Built for Shopify and DTC
+              The decision layer for returns and CX exceptions. Built for ecommerce and DTC
               brands that want the right call to happen by default.
             </p>
           </div>
