@@ -1,0 +1,89 @@
+'use client'
+
+import { useState } from 'react'
+import { Plus } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { Reveal } from '@/components/reveal'
+
+const FAQS = [
+  {
+    q: 'Does rezlv send refunds automatically?',
+    a: 'No — and that’s the point. rezlv drafts on-policy replies and recommends decisions, but a human approves before anything goes out. It’s human-in-the-loop by design so it can never promise an outcome you wouldn’t honor.',
+  },
+  {
+    q: 'What does it integrate with?',
+    a: 'rezlv connects to Shopify and one helpdesk (like Gorgias or Zendesk) to start. We deliberately keep the surface narrow so setup is fast and the decision logic stays sharp.',
+  },
+  {
+    q: 'How long does setup take?',
+    a: 'Most brands go from kickoff to routing real decisions within two weeks. Mapping your policy into a decision tree is a working session, not a multi-quarter project.',
+  },
+  {
+    q: 'Who is rezlv for?',
+    a: 'Shopify and DTC brands with roughly 7–15 people and a real returns/CX volume — especially teams that have just hit a painful, visible inconsistency and want the right call to happen by default.',
+  },
+  {
+    q: 'How is this different from an AI chatbot?',
+    a: 'Chatbots try to answer everything autonomously and often go off-policy. rezlv is a decision and accountability layer: it enforces your rules, assigns ownership of every exception, and logs deviations — with a human in the loop.',
+  },
+]
+
+export function FaqSection() {
+  const [open, setOpen] = useState<number | null>(0)
+
+  return (
+    <section id="faq" className="scroll-mt-24 px-4 py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <Reveal>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">FAQ</p>
+          <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+            Questions, answered.
+          </h2>
+          <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
+            Still unsure if rezlv fits your stack?{' '}
+            <a href="https://calendar.app.google/L2M8WNnoBo3ufACb7" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">
+              Book a walkthrough
+            </a>{' '}
+            and we&apos;ll walk through your exact workflow.
+          </p>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="divide-y divide-border rounded-3xl border border-border bg-card">
+            {FAQS.map((item, i) => {
+              const isOpen = open === i
+              return (
+                <div key={item.q} className="px-6">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                  >
+                    <span className="text-base font-medium text-foreground">{item.q}</span>
+                    <Plus
+                      className={cn(
+                        'size-5 shrink-0 text-muted-foreground transition-transform duration-300',
+                        isOpen && 'rotate-45',
+                      )}
+                    />
+                  </button>
+                  <div
+                    className={cn(
+                      'grid transition-all duration-300 ease-out',
+                      isOpen ? 'grid-rows-[1fr] pb-5 opacity-100' : 'grid-rows-[0fr] opacity-0',
+                    )}
+                  >
+                    <p className="overflow-hidden text-sm leading-relaxed text-muted-foreground">
+                      {item.a}
+                    </p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
