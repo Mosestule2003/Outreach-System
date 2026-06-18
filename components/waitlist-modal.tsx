@@ -185,10 +185,7 @@ export function WaitlistModal() {
               <span className="flex size-11 items-center justify-center rounded-full bg-gray-200 text-gray-600">
                 <X className="size-5" />
               </span>
-              <p className="mt-1 font-medium text-gray-900">Already applied.</p>
-              <p className="text-sm text-gray-500">
-                You are already on the waitlist with this email address.
-              </p>
+              <p className="mt-1 font-medium text-gray-900">You are already on the waitlist</p>
               <button
                 onClick={closeWaitlist}
                 className="mt-3 w-full rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-80"
