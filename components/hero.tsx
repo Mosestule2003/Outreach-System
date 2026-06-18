@@ -28,29 +28,21 @@ export function Hero() {
 
         <Reveal delay={80}>
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
-            Everyone handles customers
-            <br />
-            <span className="text-muted-foreground">the way you would.</span>
+            The AI decision layer for Shopify customer service.
           </h1>
-        </Reveal>
-
-        <Reveal delay={160}>
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Your team shouldn&apos;t have to guess what to do when an order goes wrong. rezlv is the decision layer for returns and CX exceptions that puts your brand&apos;s policy inside every reply.
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            Seamlessly integrate with Shopify and Gorgias to automate task assignment, enforce brand policies, and empower your team to get every decision right.
           </p>
         </Reveal>
 
         <Reveal delay={240}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="https://calendar.app.google/L2M8WNnoBo3ufACb7"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03]"
+            <button
+              onClick={openWaitlist}
+              className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02]"
             >
-              Book a walkthrough
-              <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+              Get Started
+            </button>
             <a
               href="#how-it-works"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
@@ -74,18 +66,18 @@ export function Hero() {
             aria-hidden="true"
             className="absolute -inset-x-6 -bottom-6 -top-2 -z-10 rounded-[2.5rem] bg-gradient-to-b from-muted/60 to-transparent"
           />
-          <div className="animate-float overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_120px_-30px_oklch(0.16_0_0_/_0.25)]">
-            <Image
-              src="/hero-decision-mockup.png"
-              alt="rezlv reply composer showing a recommended decision and policy clause in a support ticket"
-              width={1600}
-              height={1000}
-              priority
-              className="h-auto w-full"
-            />
+          <div className="relative mx-auto mt-20 max-w-5xl rounded-[2rem] border border-border/50 bg-card p-2 shadow-2xl sm:p-4">
+            <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background">
+              <Image
+                src="/hero_dashboard_mockup.png"
+                alt="rezlv dashboard integrating Shopify and Gorgias"
+                width={2400}
+                height={1600}
+                className="w-full object-cover"
+                priority
+              />
+            </div>
           </div>
-
-
         </div>
       </Reveal>
     </section>

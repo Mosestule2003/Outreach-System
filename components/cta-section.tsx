@@ -9,7 +9,7 @@ function DemoCard() {
     <div id="demo" className="scroll-mt-24 flex h-full flex-col justify-between rounded-3xl bg-primary p-8 text-primary-foreground sm:p-10">
       <div>
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/60">
-          Book a walkthrough
+          Get Started
         </p>
         <h3 className="mt-4 text-balance text-3xl font-semibold tracking-tight">
           See rezlv on your workflow.
@@ -26,7 +26,7 @@ function DemoCard() {
         rel="noopener noreferrer"
         className="group mt-8 inline-flex items-center justify-center gap-2 self-start rounded-2xl bg-accent px-6 py-3.5 text-sm font-medium text-accent-foreground transition-transform duration-300 hover:scale-[1.02]"
       >
-        Request my walkthrough
+        Get Started
         <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
       </a>
     </div>

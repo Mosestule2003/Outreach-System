@@ -4,6 +4,7 @@ import { ProblemSection } from '@/components/problem-section'
 import { FeaturesSection } from '@/components/features-section'
 import { HowItWorks } from '@/components/how-it-works'
 import { ResultsSection } from '@/components/results-section'
+import { IntegrationSection } from '@/components/integration-section'
 import { Testimonials } from '@/components/testimonials'
 import { FaqSection } from '@/components/faq-section'
 import { CtaSection } from '@/components/cta-section'
@@ -87,6 +88,7 @@ export default function Page() {
         <ProblemSection />
         <FeaturesSection />
         <HowItWorks />
+        <IntegrationSection />
         <ResultsSection />
         <Testimonials />
         <FaqSection />

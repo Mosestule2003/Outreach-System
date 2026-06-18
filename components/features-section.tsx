@@ -1,73 +1,58 @@
-import Image from 'next/image'
 import { Reveal } from '@/components/reveal'
+import Image from 'next/image'
+import { Sparkles, Users } from 'lucide-react'
 
 const FEATURES = [
   {
-    eyebrow: 'Decision logic, in the flow',
-    title: 'Your policy, surfaced at the moment of action.',
-    body: 'A brand-specific decision tree — refund vs. replace vs. deny, damaged vs. remorse, VIP overrides — appears right inside the agent’s reply. Not a doc they have to remember to open.',
-    image: '/feature-decision-tree.png',
-    alt: 'A returns decision tree showing branches for damaged, buyer remorse, and VIP customers leading to refund, replace, or deny outcomes',
+    title: 'Automated task assignment',
+    description: 'Every exception is assigned to the right owner automatically, based on predefined rules. No more guessing who should handle a tricky refund.',
+    icon: <Users className="size-5 text-accent" />,
+    image: '/feature_decision_delegation.png',
+    alt: 'Decision delegation assigning a task to Sarah (CX Lead)',
   },
   {
-    eyebrow: 'Enforced ownership',
-    title: 'Every exception gets an owner and a reason.',
-    body: 'Off-policy decisions are auto-assigned to an owner with a nudge, and every deviation is logged with the why behind it. Accountability — not another wiki nobody reads.',
-    image: '/feature-ownership-log.png',
-    alt: 'A deviation log listing decision owners, outcomes, timestamps, and reason tags with one row assigned an owner',
-  },
-  {
-    eyebrow: 'Human-in-the-loop replies',
-    title: 'On-policy drafts your team approves in one click.',
-    body: 'rezlv drafts the customer reply constrained to your policy and voice. A human clicks approve or edits. By design, it can’t promise outcomes you’d never honor.',
-    image: '/feature-reply-draft.png',
-    alt: 'An AI-drafted customer reply constrained to brand voice with approve and edit controls and an on-brand badge',
+    title: 'Centralized customer context',
+    description: 'A comprehensive view of a customer’s profile, combining data from Shopify and your helpdesk. Access order history, interactions, and tags in one place.',
+    icon: <Sparkles className="size-5 text-accent" />,
+    image: '/feature_customer_context.png',
+    alt: 'Centralized customer profile showing Shopify and helpdesk data',
   },
 ]
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="scroll-mt-24 px-4 py-20 sm:py-28">
+    <section id="features" className="scroll-mt-24 bg-muted/30 px-4 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl">
-        <Reveal className="max-w-3xl">
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">What rezlv does</p>
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Features</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            One workflow. The right call, every time.
+            Everything you need to resolve tickets faster.
           </h2>
-          <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-            A ticket or return comes in, your decision logic is applied, the exception
-            gets an owner, and the deviation is logged. That&apos;s the whole loop.
-          </p>
         </Reveal>
 
-        <div className="mt-16 flex flex-col gap-20 sm:gap-28">
+        <div className="mt-20 flex flex-col gap-24">
           {FEATURES.map((feature, i) => (
-            <Reveal key={feature.title}>
-              <div
-                className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
-                  i % 2 === 1 ? 'lg:[&>div:first-child]:order-2' : ''
-                }`}
-              >
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                    {feature.eyebrow}
-                  </p>
-                  <h3 className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-                    {feature.title}
-                  </h3>
-                  <p className="mt-5 max-w-md text-pretty text-base leading-relaxed text-muted-foreground">
-                    {feature.body}
-                  </p>
+            <Reveal key={feature.title} delay={100}>
+              <div className={`flex flex-col items-center gap-12 lg:flex-row ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                <div className="flex-1">
+                  <div className="mb-4 flex size-10 items-center justify-center rounded-full bg-secondary">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-2xl font-semibold tracking-tight">{feature.title}</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">{feature.description}</p>
                 </div>
-
-                <div className="overflow-hidden rounded-3xl border border-border bg-muted/40 p-3 shadow-[0_30px_80px_-40px_oklch(0.16_0_0_/_0.3)]">
-                  <Image
-                    src={feature.image || '/placeholder.svg'}
-                    alt={feature.alt}
-                    width={1200}
-                    height={900}
-                    className="h-auto w-full rounded-2xl"
-                  />
+                <div className="flex-[1.5]">
+                  <div className="overflow-hidden rounded-[1.5rem] border border-border/50 bg-background p-2 shadow-xl">
+                    <div className="overflow-hidden rounded-2xl border border-border/50">
+                      <Image
+                        src={feature.image}
+                        alt={feature.alt}
+                        width={1600}
+                        height={1000}
+                        className="w-full object-cover"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </Reveal>
