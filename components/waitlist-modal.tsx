@@ -88,8 +88,14 @@ export function WaitlistModal() {
       if (error) throw error
 
       setStatus('done')
-    } catch (err) {
-      console.error(err)
+    } catch (err: unknown) {
+      const msg =
+        err instanceof Error
+          ? err.message
+          : typeof err === 'object' && err !== null
+          ? JSON.stringify(err)
+          : String(err)
+      console.error('Waitlist submit error:', msg)
       alert("Something went wrong. Please try again.")
       setStatus('idle')
     }
