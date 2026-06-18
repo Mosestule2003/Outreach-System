@@ -187,7 +187,7 @@ export function WaitlistModal() {
               </span>
               <p className="mt-1 font-medium text-gray-900">Already applied.</p>
               <p className="text-sm text-gray-500">
-                Sorry, an application with this email address already exists.
+                You are already on the waitlist with this email address.
               </p>
               <button
                 onClick={closeWaitlist}
