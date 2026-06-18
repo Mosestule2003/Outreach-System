@@ -35,7 +35,7 @@ function Field({ children }: { children: React.ReactNode }) {
 
 export function WaitlistModal() {
   const { isOpen, closeWaitlist } = useWaitlist()
-  const [status, setStatus] = useState<'idle' | 'loading' | 'done'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'exists'>('idle')
   const [role, setRole] = useState('')
   const [roleOther, setRoleOther] = useState('')
   const [challenge, setChallenge] = useState('')
@@ -78,10 +78,12 @@ export function WaitlistModal() {
     try {
       const formData = new FormData(e.target as HTMLFormElement)
       
+      const workEmail = formData.get('work_email') as string
+
       const payload = {
         name: formData.get('name'),
         company: formData.get('company'),
-        work_email: formData.get('work_email'),
+        work_email: workEmail,
         role,
         role_other: role === 'other' ? roleOther : null,
         annual_revenue: formData.get('annual_revenue'),
@@ -90,11 +92,31 @@ export function WaitlistModal() {
         hope_to_solve: formData.get('hope_to_solve'),
       }
 
+      // Check if email already exists
+      const { data: existingUser, error: checkError } = await supabase
+        .from('waitlist')
+        .select('id')
+        .eq('work_email', workEmail)
+        .maybeSingle()
+
+      if (checkError) throw checkError
+
+      if (existingUser) {
+        setStatus('exists')
+        return
+      }
+
       const { error } = await supabase
         .from('waitlist')
         .insert([payload])
 
-      if (error) throw error
+      if (error) {
+        if (error.code === '23505') { // Postgres unique constraint violation
+          setStatus('exists')
+          return
+        }
+        throw error
+      }
 
       setStatus('done')
     } catch (err: unknown) {
@@ -150,6 +172,22 @@ export function WaitlistModal() {
               <p className="mt-1 font-medium text-gray-900">Application received.</p>
               <p className="text-sm text-gray-500">
                 We&apos;ll review your fit and be in touch within 48 hours.
+              </p>
+              <button
+                onClick={closeWaitlist}
+                className="mt-3 w-full rounded-lg bg-black px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-80"
+              >
+                Close
+              </button>
+            </div>
+          ) : status === 'exists' ? (
+            <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 p-6 text-center">
+              <span className="flex size-11 items-center justify-center rounded-full bg-gray-200 text-gray-600">
+                <X className="size-5" />
+              </span>
+              <p className="mt-1 font-medium text-gray-900">Already applied.</p>
+              <p className="text-sm text-gray-500">
+                Sorry, an application with this email address already exists.
               </p>
               <button
                 onClick={closeWaitlist}
