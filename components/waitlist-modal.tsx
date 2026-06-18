@@ -3,6 +3,7 @@
 import { FormEvent, useState, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import { useWaitlist } from './waitlist-context'
+import { supabase } from '@/lib/supabase'
 
 const CHALLENGES = [
   { value: 'consistency', label: 'Inconsistent CX / refund decisions across agents' },
@@ -60,11 +61,38 @@ export function WaitlistModal() {
 
   if (!isOpen) return null
 
-  const submit = (e: FormEvent) => {
+  const submit = async (e: FormEvent) => {
     e.preventDefault()
     if (status !== 'idle') return
     setStatus('loading')
-    setTimeout(() => setStatus('done'), 900)
+
+    try {
+      const formData = new FormData(e.target as HTMLFormElement)
+      
+      const payload = {
+        name: formData.get('name'),
+        company: formData.get('company'),
+        work_email: formData.get('work_email'),
+        role,
+        role_other: role === 'other' ? roleOther : null,
+        annual_revenue: formData.get('annual_revenue'),
+        challenge,
+        challenge_other: challenge === 'other' ? challengeOther : null,
+        hope_to_solve: formData.get('hope_to_solve'),
+      }
+
+      const { error } = await supabase
+        .from('waitlist')
+        .insert([payload])
+
+      if (error) throw error
+
+      setStatus('done')
+    } catch (err) {
+      console.error(err)
+      alert("Something went wrong. Please try again.")
+      setStatus('idle')
+    }
   }
 
   return (
@@ -118,22 +146,21 @@ export function WaitlistModal() {
           ) : (
             <form onSubmit={submit} className="mt-6 flex flex-col gap-5">
 
-              {/* Name + Company */}
               <div className="grid grid-cols-2 gap-3">
                 <Field>
                   <Label>Full name</Label>
-                  <input required type="text" placeholder="Jane Smith" className={inputClass} />
+                  <input required name="name" type="text" placeholder="Jane Smith" className={inputClass} />
                 </Field>
                 <Field>
                   <Label>Company name</Label>
-                  <input required type="text" placeholder="Acme Store" className={inputClass} />
+                  <input required name="company" type="text" placeholder="Acme Store" className={inputClass} />
                 </Field>
               </div>
 
               {/* Email */}
               <Field>
                 <Label>Work email</Label>
-                <input required type="email" placeholder="jane@acmestore.com" className={inputClass} />
+                <input required name="work_email" type="email" placeholder="jane@acmestore.com" className={inputClass} />
               </Field>
 
               {/* Role */}
@@ -168,7 +195,7 @@ export function WaitlistModal() {
               {/* Annual Revenue */}
               <Field>
                 <Label>Annual revenue</Label>
-                <select required defaultValue="" className={selectClass}>
+                <select required name="annual_revenue" defaultValue="" className={selectClass}>
                   <option value="" disabled>Select...</option>
                   <option value="under-250k">Under $250K</option>
                   <option value="250k-500k">$250K – $500K</option>
@@ -210,6 +237,7 @@ export function WaitlistModal() {
                 <Label>What are you hoping rezlv can solve?</Label>
                 <textarea
                   required
+                  name="hope_to_solve"
                   rows={3}
                   placeholder="What's the biggest problem you're hoping rezlv can help solve?"
                   className="w-full resize-none rounded-lg border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-900 placeholder:text-gray-400 placeholder:font-normal focus:border-gray-400 focus:outline-none transition-colors"
