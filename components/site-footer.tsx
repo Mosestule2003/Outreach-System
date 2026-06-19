@@ -1,4 +1,7 @@
+'use client'
+
 import { WaitlistButton } from './waitlist-button'
+import { trackEvent } from '@/lib/analytics'
 
 const FOOTER_LINKS = [
   {
@@ -53,6 +56,7 @@ export function SiteFooter() {
                   <li key={link.label}>
                     {link.label === 'Join waitlist' ? (
                       <WaitlistButton
+                        source="footer"
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
@@ -62,6 +66,13 @@ export function SiteFooter() {
                         href={link.href}
                         target={link.label === 'Book a walkthrough' ? '_blank' : undefined}
                         rel={link.label === 'Book a walkthrough' ? 'noopener noreferrer' : undefined}
+                        onClick={() => {
+                          if (link.label === 'Book a walkthrough') {
+                            trackEvent('book_walkthrough_click', { location: 'footer' })
+                          } else {
+                            trackEvent('footer_nav_click', { label: link.label })
+                          }
+                        }}
                         className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}

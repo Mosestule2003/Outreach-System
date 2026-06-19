@@ -1,6 +1,9 @@
+'use client'
+
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { WaitlistButton } from './waitlist-button'
+import { trackEvent } from '@/lib/analytics'
 
 function DemoCard() {
   return (
@@ -22,6 +25,7 @@ function DemoCard() {
         href="https://calendar.app.google/L2M8WNnoBo3ufACb7"
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackEvent('book_walkthrough_click', { location: 'cta_demo' })}
         className="group mt-8 inline-flex items-center justify-center gap-2 self-start rounded-2xl bg-accent px-6 py-3.5 text-sm font-medium text-accent-foreground transition-transform duration-300 hover:scale-[1.02]"
       >
         Book a 20-min walkthrough
@@ -47,6 +51,7 @@ function WaitlistCard() {
 
       <div className="mt-8">
         <WaitlistButton
+          source="cta_section"
           className="inline-flex w-full items-center justify-center rounded-2xl bg-primary px-6 py-3.5 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02] sm:w-auto"
         >
           Join waitlist

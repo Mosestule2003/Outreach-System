@@ -3,6 +3,7 @@
 import { FormEvent, useState, useEffect } from 'react'
 import { Check, X } from 'lucide-react'
 import { useWaitlist } from './waitlist-context'
+import { trackEvent } from '@/lib/analytics'
 import { supabase } from '@/lib/supabase'
 
 const CHALLENGES = [
@@ -57,11 +58,6 @@ export function WaitlistModal() {
       setChallenge('')
       setChallengeOther('')
 
-      // Track modal open
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'waitlist_open', { event_category: 'waitlist' })
-      }
-
       // Lock body scroll to prevent background scroll chaining and keyboard layout thrashing
       document.body.style.overflow = 'hidden'
     } else {
@@ -108,9 +104,7 @@ export function WaitlistModal() {
 
       if (existingUser) {
         setStatus('exists')
-        if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-          window.gtag('event', 'waitlist_duplicate', { event_category: 'waitlist' })
-        }
+        trackEvent('waitlist_duplicate', { event_category: 'waitlist' })
         return
       }
 
@@ -121,21 +115,17 @@ export function WaitlistModal() {
       if (error) {
         if (error.code === '23505') {
           setStatus('exists')
-          if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-            window.gtag('event', 'waitlist_duplicate', { event_category: 'waitlist' })
-          }
+          trackEvent('waitlist_duplicate', { event_category: 'waitlist' })
           return
         }
         throw error
       }
 
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('event', 'waitlist_submit', {
-          event_category: 'waitlist',
-          role: role === 'other' ? roleOther : role,
-          challenge: challenge === 'other' ? challengeOther : challenge,
-        })
-      }
+      trackEvent('waitlist_submit', {
+        event_category: 'waitlist',
+        role: role === 'other' ? roleOther : role,
+        challenge: challenge === 'other' ? challengeOther : challenge,
+      })
 
       setStatus('done')
     } catch (err: unknown) {

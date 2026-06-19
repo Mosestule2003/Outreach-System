@@ -1,7 +1,10 @@
+'use client'
+
 import { ArrowRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { WaitlistButton } from './waitlist-button'
 import { HeroDashboardIllustration } from './illustrations'
+import { trackEvent } from '@/lib/analytics'
 
 export function Hero() {
   return (
@@ -15,6 +18,7 @@ export function Hero() {
       <div className="mx-auto max-w-4xl text-center">
         <Reveal>
           <WaitlistButton
+            source="hero_badge"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium tracking-wide text-muted-foreground shadow-sm transition-colors hover:text-foreground"
           >
             <span className="flex size-1.5 rounded-full bg-accent" />
@@ -34,12 +38,14 @@ export function Hero() {
         <Reveal delay={240}>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <WaitlistButton
+              source="hero_cta"
               className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.02]"
             >
               Request early access
             </WaitlistButton>
             <a
               href="#how-it-works"
+              onClick={() => trackEvent('hero_scroll_cta_click')}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3.5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
             >
               See how it works

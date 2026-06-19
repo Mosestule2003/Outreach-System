@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { useWaitlist } from './waitlist-context'
+import { trackEvent } from '@/lib/analytics'
+import { WaitlistButton } from './waitlist-button'
 
 const NAV = [
   { label: 'How it works', href: '#how-it-works' },
@@ -45,6 +47,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
+              onClick={() => trackEvent('nav_click', { label: item.label, location: 'header' })}
               className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
@@ -53,16 +56,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={openWaitlist}
+          <WaitlistButton
+            source="header"
             className="hidden rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
           >
             Join waitlist
-          </button>
+          </WaitlistButton>
           <a
             href="https://calendar.app.google/L2M8WNnoBo3ufACb7"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('book_walkthrough_click', { location: 'header' })}
             className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03]"
           >
             Book a walkthrough
@@ -90,21 +94,22 @@ export function SiteHeader() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false)
+                  trackEvent('nav_click', { label: item.label, location: 'header_mobile' })
+                }}
                 className="rounded-2xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
               >
                 {item.label}
               </a>
             ))}
-            <button
-              onClick={() => {
-                setOpen(false)
-                openWaitlist()
-              }}
+            <WaitlistButton
+              source="header_mobile"
+              onClick={() => setOpen(false)}
               className="text-left rounded-2xl px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-muted"
             >
               Join waitlist
-            </button>
+            </WaitlistButton>
           </nav>
         </div>
       )}

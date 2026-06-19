@@ -4,11 +4,12 @@ import { useState } from 'react'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Reveal } from '@/components/reveal'
+import { trackEvent } from '@/lib/analytics'
 
 const FAQS = [
   {
     q: 'Does rezlv send refunds automatically?',
-    a: 'No — and that’s the point. rezlv drafts on-policy replies and recommends decisions, but a human approves before anything goes out. It’s human-in-the-loop by design so it can never promise an outcome you wouldn’t honor.',
+    a: 'No — and that\'s the point. rezlv drafts on-policy replies and recommends decisions, but a human approves before anything goes out. It\'s human-in-the-loop by design so it can never promise an outcome you wouldn\'t honor.',
   },
   {
     q: 'What does it integrate with?',
@@ -31,6 +32,14 @@ const FAQS = [
 export function FaqSection() {
   const [open, setOpen] = useState<number | null>(0)
 
+  const toggle = (i: number, q: string) => {
+    const isOpening = open !== i
+    setOpen(isOpening ? i : null)
+    if (isOpening) {
+      trackEvent('faq_expand', { question: q, index: i })
+    }
+  }
+
   return (
     <section id="faq" className="scroll-mt-24 px-4 py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
@@ -41,7 +50,13 @@ export function FaqSection() {
           </h2>
           <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
             Still unsure if rezlv fits your stack?{' '}
-            <a href="https://calendar.app.google/L2M8WNnoBo3ufACb7" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">
+            <a
+              href="https://calendar.app.google/L2M8WNnoBo3ufACb7"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('book_walkthrough_click', { location: 'faq' })}
+              className="font-medium text-foreground underline underline-offset-4"
+            >
               Book a walkthrough
             </a>{' '}
             and we&apos;ll walk through your exact workflow.
@@ -56,7 +71,7 @@ export function FaqSection() {
                 <div key={item.q} className="px-6">
                   <button
                     type="button"
-                    onClick={() => setOpen(isOpen ? null : i)}
+                    onClick={() => toggle(i, item.q)}
                     aria-expanded={isOpen}
                     className="flex w-full items-center justify-between gap-4 py-5 text-left"
                   >
