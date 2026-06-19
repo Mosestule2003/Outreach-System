@@ -8,6 +8,7 @@ import { IntegrationSection } from '@/components/integration-section'
 import { Testimonials } from '@/components/testimonials'
 import { FaqSection } from '@/components/faq-section'
 import { CtaSection } from '@/components/cta-section'
+import { ArticlesSection } from '@/components/articles-section'
 import { SiteFooter } from '@/components/site-footer'
 
 const SITE_URL = 'https://rezlv.com'
@@ -187,6 +188,7 @@ export default function Page() {
         <Testimonials />
         <FaqSection />
         <CtaSection />
+        <ArticlesSection />
       </main>
       <SiteFooter />
     </>
