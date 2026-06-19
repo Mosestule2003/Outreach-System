@@ -15,7 +15,7 @@ const SITE_URL = 'https://rezlv.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'rezlv — Returns & CX decisions, correct by default',
+    default: 'rezlv: Returns & CX decisions, correct by default',
     template: '%s · rezlv',
   },
   description:
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
     siteName: 'rezlv',
-    title: 'rezlv — Returns & CX decisions, correct by default',
+    title: 'rezlv: Returns & CX decisions, correct by default',
     description:
       'The decision layer for Shopify & DTC brands. Consistent returns and refund calls, enforced ownership, and on-policy human-approved replies.',
     images: [
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@rezlv',
     creator: '@rezlv',
-    title: 'rezlv — Returns & CX decisions, correct by default',
+    title: 'rezlv: Returns & CX decisions, correct by default',
     description:
       'The decision layer for Shopify & DTC brands. Consistent returns and refund calls, enforced ownership, and on-policy human-approved replies.',
     images: ['/hero-decision-mockup.png'],

@@ -63,7 +63,7 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: 'rezlv — Returns & CX decisions, correct by default',
+      name: 'rezlv: Returns & CX decisions, correct by default',
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@id': `${SITE_URL}/#organization` },
       description:
