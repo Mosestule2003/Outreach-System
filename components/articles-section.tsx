@@ -1,11 +1,13 @@
+'use client'
+
 import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
 const ARTICLES = [
   {
     source: 'Shopify',
-    sourceUrl: 'https://www.shopify.com',
     tag: 'Returns Strategy',
+    internalLink: { label: 'How rezlv handles this', href: '#how-it-works' },
     title: 'Ecommerce Returns: Average Return Rate and How to Reduce It',
     excerpt:
       '92% of consumers say they\'d buy from a brand again if returns were easy — and 95% say a poor returns experience makes them less likely to return. This guide breaks down what top brands get right.',
@@ -14,8 +16,8 @@ const ARTICLES = [
   },
   {
     source: 'Modern Retail',
-    sourceUrl: 'https://www.modernretail.co',
     tag: 'CX at Scale',
+    internalLink: { label: 'See rezlv features', href: '#features' },
     title: 'As DTC Brands Grow Up, Customer Service Becomes a Bigger Headache',
     excerpt:
       'Growing digitally-native brands are realizing that the way to maintain their reputation is through consistent customer service — but consistency at scale is the hard part nobody talks about.',
@@ -24,8 +26,8 @@ const ARTICLES = [
   },
   {
     source: 'Gorgias',
-    sourceUrl: 'https://www.gorgias.com',
     tag: 'Operations',
+    internalLink: { label: 'See integrations', href: '#how-it-works' },
     title: 'Ecommerce Returns: 10 Best Practices for Your Online Store',
     excerpt:
       'Returns are one of the highest-volume CX interactions in ecommerce. Brands that treat them as a system — not a one-off decision — recover more revenue and keep more customers.',
@@ -95,10 +97,19 @@ export function ArticlesSection() {
                   {article.excerpt}
                 </p>
 
-                {/* CTA */}
-                <div className="mt-6 flex items-center gap-1.5 text-sm font-medium text-foreground">
-                  Read article
-                  <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                {/* Footer: external + internal link */}
+                <div className="mt-6 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-foreground">
+                    Read article
+                    <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                  <a
+                    href={article.internalLink.href}
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-[11px] font-medium text-accent underline underline-offset-2 hover:opacity-70"
+                  >
+                    {article.internalLink.label} →
+                  </a>
                 </div>
               </a>
             </Reveal>

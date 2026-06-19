@@ -103,6 +103,14 @@ const jsonLd = {
         'CX accountability logging',
       ],
       screenshot: `${SITE_URL}/hero-decision-mockup.png`,
+      video: {
+        '@type': 'VideoObject',
+        name: 'rezlv product walkthrough',
+        description: 'See how rezlv surfaces your returns and CX policy inside every agent reply, enforces ownership of every exception, and drafts on-policy responses for human approval.',
+        thumbnailUrl: `${SITE_URL}/hero-decision-mockup.png`,
+        uploadDate: '2024-01-01',
+        embedUrl: `${SITE_URL}/#demo`,
+      },
       offers: {
         '@type': 'Offer',
         price: '0',

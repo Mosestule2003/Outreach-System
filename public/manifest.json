@@ -1,0 +1,28 @@
+{
+  "name": "rezlv",
+  "short_name": "rezlv",
+  "description": "Returns & CX decisions, correct by default. The decision layer for Shopify and DTC brands.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/hero-decision-mockup.png",
+      "type": "image/png",
+      "label": "rezlv decision dashboard"
+    }
+  ]
+}

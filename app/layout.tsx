@@ -54,7 +54,14 @@ export const metadata: Metadata = {
   creator: 'rezlv',
   publisher: 'rezlv',
   category: 'Business Software',
-  alternates: { canonical: SITE_URL },
+  alternates: {
+    canonical: SITE_URL,
+    languages: {
+      'en-US': SITE_URL,
+      'x-default': SITE_URL,
+    },
+  },
+  manifest: '/manifest.json',
   openGraph: {
     type: 'website',
     url: SITE_URL,
