@@ -22,7 +22,7 @@ export function Hero() {
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium tracking-wide text-muted-foreground shadow-sm transition-colors hover:text-foreground"
           >
             <span className="flex size-1.5 rounded-full bg-accent" />
-            FOR ECOMMERCE &amp; DTC BRANDS · NOW IN PRIVATE BETA
+            FOR DTC BRANDS SCALING PAST FOUNDER-LED CX · PRIVATE BETA
           </WaitlistButton>
         </Reveal>
 
@@ -31,7 +31,7 @@ export function Hero() {
             Your brand runs on tribal knowledge. That breaks when you scale.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            rezlv embeds your returns and CX decision logic directly into your ecommerce store and helpdesk — so every agent makes the right call by default, every exception gets an owner, and you stop being the final word on everything.
+            rezlv embeds your returns and CX decision logic directly into your store and helpdesk — so every agent makes the right call by default, every exception gets an owner, and you stop being the final word on everything.
           </p>
         </Reveal>
 
@@ -54,7 +54,10 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={320}>
-          <p className="mt-5 text-xs text-muted-foreground">
+          <p className="mt-4 text-sm text-muted-foreground">
+            Built for brands with 7–25 people where decisions still route through the founder.
+          </p>
+          <p className="mt-2 text-xs text-muted-foreground">
             No credit card · 20-minute walkthrough · Founder-priced for early brands
           </p>
         </Reveal>

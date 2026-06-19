@@ -88,7 +88,7 @@ const jsonLd = {
       name: 'rezlv',
       alternateName: ['rezlv.com', 'Rezlv'],
       applicationCategory: 'BusinessApplication',
-      applicationSubCategory: 'Customer Experience Software',
+      applicationSubCategory: 'Ecommerce Decision Management',
       operatingSystem: 'Web',
       url: SITE_URL,
       description:
@@ -154,7 +154,15 @@ const jsonLd = {
           name: 'Who is rezlv for?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Shopify and DTC brands with roughly 7 to 15 people and a real returns and CX volume — especially teams that have just hit a painful, visible inconsistency and want the right call to happen by default.',
+            text: 'DTC and ecommerce brands in the $500K–$10M range with 7–25 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. Especially sharp for teams where the Head of CX or Ops Manager is constantly answering the same internal questions, training new agents on the same edge cases, or where a key person leaving would take half the operational knowledge with them.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'We already have SOPs. Why do we still need this?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'SOPs tell your team what the policy is. They don\'t enforce it inside the moment a decision gets made. That\'s why two agents can read the same SOP and still handle the same return differently — one refunds, one offers store credit, one escalates. rezlv embeds the decision logic into the reply your agent is already writing, so the right call surfaces by default instead of relying on someone remembering what the doc said.',
           },
         },
         {

@@ -14,7 +14,7 @@ export function ResultsSection() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">The reality</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-            Why your team can&apos;t replicate founder-level decisions.
+            Why your team makes different calls on the same problem.
           </h2>
           <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
             The problem isn&apos;t effort or intent — it&apos;s that most of how your brand operates

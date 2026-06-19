@@ -71,7 +71,7 @@ export function CtaSection() {
             Stop being the final word on every exception.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
-            Build a system where your team makes the right call by default — without routing everything through you first.
+            Whether you&apos;re the founder still answering every edge case, or the CX lead tired of training the same decisions — build a system where the right call happens by default.
           </p>
         </Reveal>
 

@@ -21,7 +21,11 @@ const FAQS = [
   },
   {
     q: 'Who is rezlv for?',
-    a: 'Ecommerce and DTC brands at the $500K–$2M stage with 7–15 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. rezlv is especially sharp for teams that have just hit a visible, costly inconsistency (a refund scandal, a viral off-brand reply, a key CX person leaving) and need the right call to happen by default going forward.',
+    a: 'DTC and ecommerce brands in the $500K–$10M range with 7–25 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. Especially sharp for teams where the Head of CX or Ops Manager is constantly answering the same internal questions, training new agents on the same edge cases, or where a key person leaving would take half the operational knowledge with them.',
+  },
+  {
+    q: 'We already have SOPs. Why do we still need this?',
+    a: 'SOPs tell your team what the policy is. They don\'t enforce it inside the moment a decision gets made. That\'s why two agents can read the same SOP and still handle the same return differently — one refunds, one offers store credit, one escalates. rezlv embeds the decision logic into the reply your agent is already writing, so the right call surfaces by default instead of relying on someone remembering what the doc said.',
   },
   {
     q: 'How is this different from my helpdesk AI or a chatbot?',

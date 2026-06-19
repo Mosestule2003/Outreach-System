@@ -5,7 +5,7 @@ import { DecisionDelegationIllustration, CustomerContextIllustration } from './i
 const FEATURES = [
   {
     title: 'Every exception gets an owner — automatically.',
-    description: 'No more "who handles this?" in Slack. When a ticket hits an edge case, rezlv assigns it to the right person based on your rules — with a nudge, a deadline, and a log of how it was resolved. Your CX lead stops being the final word on everything.',
+    description: 'No more "who handles this?" in Slack. When a ticket hits an edge case, rezlv assigns it to the right person based on your rules — with a nudge, a deadline, and a log of how it was resolved. Your Head of CX stops being the human router for every exception.',
     icon: <Users className="size-5 text-accent" />,
     illustration: <DecisionDelegationIllustration />,
   },

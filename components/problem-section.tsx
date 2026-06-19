@@ -16,6 +16,11 @@ const PROBLEMS = [
     line: "is making promises you wouldn't approve.",
     body: "Unconstrained bots offer refunds, extensions, and exceptions your policy doesn't cover. One off-policy reply becomes a public, expensive problem.",
   },
+  {
+    stat: 'Your best CX person',
+    line: 'just put in their two weeks.',
+    body: "Half of what they know was never documented. The rest lives in Slack threads and muscle memory. Now you're onboarding a replacement into a system that only existed in someone's head.",
+  },
 ]
 
 export function ProblemSection() {
@@ -28,13 +33,12 @@ export function ProblemSection() {
             You&apos;ve bought the tools. The ownership gaps are still there.
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Past $500K and 7&ndash;10 people, founder proximity breaks. Teams add helpdesk macros, Notion SOPs,
-            Slack pins &mdash; and still end up inconsistent. The tools track work. Nobody enforces who owns the
-            decision when it matters.
+            Past $500K and 7+ people, founder proximity breaks. Teams add helpdesk macros, Notion SOPs,
+            Slack pins &mdash; and still end up inconsistent. You have SOPs. Nobody follows them the same way.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-3">
+        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {PROBLEMS.map((item, i) => (
             <Reveal key={item.line} delay={i * 100}>
               <div className="h-full rounded-3xl border border-border bg-card p-7">
