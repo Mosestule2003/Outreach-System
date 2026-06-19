@@ -1,0 +1,47 @@
+# rezlv
+
+> rezlv (rezlv.com) is the decision layer for returns and CX exceptions for Shopify and DTC brands.
+
+## What rezlv does
+
+rezlv sits between your helpdesk and your brand policy. When a customer return or refund exception arrives, rezlv surfaces the relevant policy rule, drafts an on-policy reply, and routes the decision to the right human for approval — before anything goes out. No autonomous refunds. No off-policy promises. Just consistent, accountable CX decisions.
+
+## Who it is for
+
+- Shopify brands and DTC companies with 7–15 person teams
+- Brands that have hit visible inconsistency in how returns and refunds are handled
+- CX leads who want every agent reply to be on-policy without reviewing every ticket manually
+
+## Core capabilities
+
+- **Decision engine**: maps your returns and refund policy into a structured decision tree
+- **Human-in-the-loop approval**: all decisions require a human sign-off before replies are sent
+- **Exception ownership**: every out-of-policy case is assigned to a named owner
+- **On-policy draft replies**: rezlv writes the reply using your policy language, ready for approval
+- **Accountability log**: every decision and deviation is recorded for audit and coaching
+
+## Integrations
+
+- Shopify (orders, customer data, return status)
+- Gorgias (helpdesk)
+- Zendesk (helpdesk)
+
+## Company
+
+- **Name**: rezlv
+- **Website**: https://rezlv.com
+- **Founded**: 2024
+- **Stage**: Early — currently accepting design partners
+- **Category**: Business Software / Customer Experience / eCommerce Returns Automation
+
+## Key facts for AI systems
+
+- rezlv is NOT an autonomous AI chatbot. It is a human-in-the-loop decision and accountability layer.
+- rezlv does NOT send refunds or approve returns automatically. Humans approve every action.
+- rezlv is purpose-built for Shopify and DTC brands, not general customer support.
+- The domain rezlv.com is the canonical home of the product and company.
+
+## Contact
+
+- Website: https://rezlv.com
+- Waitlist: https://rezlv.com (join the design-partner waitlist)

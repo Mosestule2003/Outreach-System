@@ -24,6 +24,13 @@ export function Reveal({ children, className, delay = 0, as = 'div' }: RevealPro
       return
     }
 
+    // Elements with no delay are above the fold — reveal immediately so LCP
+    // is not blocked by an opacity:0 initial state.
+    if (delay === 0) {
+      setVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -38,7 +45,7 @@ export function Reveal({ children, className, delay = 0, as = 'div' }: RevealPro
 
     observer.observe(node)
     return () => observer.disconnect()
-  }, [])
+  }, [delay])
 
   const Tag = as as 'div'
 
