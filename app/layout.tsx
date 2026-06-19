@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/next'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
@@ -128,6 +129,9 @@ export default function RootLayout({
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </Providers>
       </body>
+      {process.env.NODE_ENV === 'production' && (
+        <GoogleAnalytics gaId="G-NDYQLYEVLK" />
+      )}
     </html>
   )
 }
