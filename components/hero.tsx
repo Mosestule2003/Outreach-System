@@ -77,7 +77,7 @@ export function Hero() {
             aria-hidden="true"
             className="absolute -inset-x-6 -bottom-6 -top-2 -z-10 rounded-[2.5rem] bg-gradient-to-b from-muted/40 to-transparent"
           />
-          <div className="relative mx-auto mt-20 max-w-5xl animate-float overflow-hidden rounded-2xl border border-border/60 bg-card p-2 shadow-[var(--shadow-xl)] sm:p-4">
+          <div className="relative mx-auto mt-20 max-w-5xl overflow-hidden rounded-2xl border border-border/60 bg-card p-2 shadow-[var(--shadow-xl)] sm:p-4">
             <div className="overflow-hidden rounded-xl border border-border/50 bg-background">
               <HeroDashboard />
             </div>

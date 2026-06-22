@@ -19,21 +19,23 @@ interface RevealProps {
   className?: string
   delay?: number
   variant?: RevealVariant
-  once?: boolean
   as?: 'div' | 'section' | 'span' | 'li'
 }
 
-export function Reveal({ children, className, delay = 0, variant = 'up', once = false, as = 'div' }: RevealProps) {
+export function Reveal({ children, className, delay = 0, variant = 'up', as = 'div' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const onceRef = useRef(once)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const node = ref.current
     if (!node) return
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduce) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setVisible(true)
+      return
+    }
+
+    if (delay === 0) {
       setVisible(true)
       return
     }
@@ -43,13 +45,11 @@ export function Reveal({ children, className, delay = 0, variant = 'up', once = 
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true)
-            if (onceRef.current) observer.unobserve(entry.target)
-          } else if (!onceRef.current) {
-            setVisible(false)
+            observer.unobserve(entry.target)
           }
         })
       },
-      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
     )
 
     observer.observe(node)

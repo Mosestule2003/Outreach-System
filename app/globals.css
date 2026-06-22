@@ -141,9 +141,9 @@
 }
 
 @layer utilities {
-  /* ── Reveal entrance animations ── */
+  /* ── Reveal entrance ── */
   @keyframes fade-up {
-    from { opacity: 0; transform: translateY(28px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes fade-in {
@@ -151,49 +151,25 @@
     to { opacity: 1; }
   }
   @keyframes scale-up {
-    from { opacity: 0; transform: scale(0.92); }
+    from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
   }
   @keyframes slide-left {
-    from { opacity: 0; transform: translateX(40px); }
+    from { opacity: 0; transform: translateX(32px); }
     to { opacity: 1; transform: translateX(0); }
   }
   @keyframes slide-right {
-    from { opacity: 0; transform: translateX(-40px); }
+    from { opacity: 0; transform: translateX(-32px); }
     to { opacity: 1; transform: translateX(0); }
   }
-  @keyframes blur-in {
-    from { opacity: 0; filter: blur(8px); transform: translateY(12px); }
-    to { opacity: 1; filter: blur(0); transform: translateY(0); }
-  }
 
-  /* Base reveal — hidden state + exit transition */
-  .reveal,
-  .reveal-fade,
-  .reveal-scale,
-  .reveal-left,
-  .reveal-right,
-  .reveal-blur {
-    opacity: 0;
-    will-change: transform, opacity, filter;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out, filter 0.5s ease-out;
-  }
-
-  /* Default hidden transforms per variant */
-  .reveal:not(.is-visible) { transform: translateY(28px); }
-  .reveal-fade:not(.is-visible) { transform: none; }
-  .reveal-scale:not(.is-visible) { transform: scale(0.92); }
-  .reveal-left:not(.is-visible) { transform: translateX(40px); }
-  .reveal-right:not(.is-visible) { transform: translateX(-40px); }
-  .reveal-blur:not(.is-visible) { filter: blur(8px); transform: translateY(12px); }
-
-  /* Entrance animations */
-  .reveal.is-visible { animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  .reveal-fade.is-visible { animation: fade-in 0.7s ease-out forwards; }
-  .reveal-scale.is-visible { animation: scale-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  .reveal-left.is-visible { animation: slide-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  .reveal-right.is-visible { animation: slide-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-  .reveal-blur.is-visible { animation: blur-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal { opacity: 0; }
+  .reveal.is-visible { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal-fade.is-visible { animation: fade-in 0.6s ease-out forwards; }
+  .reveal-scale.is-visible { animation: scale-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal-left.is-visible { animation: slide-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal-right.is-visible { animation: slide-right 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  .reveal-blur.is-visible { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
   /* ── Marquee ── */
   @keyframes marquee {
@@ -207,35 +183,22 @@
     animation-play-state: paused;
   }
 
-  /* ── Float for hero dashboard ── */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-  }
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* ── Micro-interactions ── */
+  /* ── Micro-interactions (CSS only, no will-change) ── */
   .interactive-card {
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.3s ease-out,
-                border-color 0.3s ease-out;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .interactive-card:hover {
     transform: translateY(-2px);
   }
   .interactive-card:active {
-    transform: translateY(0) scale(0.995);
+    transform: translateY(0);
   }
 
   .interactive-icon {
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background-color 0.3s ease-out,
-                color 0.3s ease-out;
+    transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
   }
   .group:hover .interactive-icon {
-    transform: scale(1.1) rotate(-3deg);
+    transform: scale(1.08);
   }
 
   .interactive-link {
@@ -249,7 +212,7 @@
     width: 0;
     height: 1px;
     background: currentColor;
-    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 0.25s ease;
   }
   .interactive-link:hover::after {
     width: 100%;

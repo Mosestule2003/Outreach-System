@@ -30,7 +30,7 @@ export function SiteHeader() {
         className={cn(
           'flex w-full max-w-6xl items-center justify-between rounded-full border border-transparent px-4 py-2.5 transition-all duration-500',
           scrolled
-            ? 'border-border/60 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-xl'
+            ? 'border-border/60 bg-background/95 shadow-[var(--shadow-sm)]'
             : 'bg-transparent',
         )}
       >
@@ -87,7 +87,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="absolute inset-x-4 top-[72px] rounded-2xl border border-border/60 bg-background/95 p-3 shadow-[var(--shadow-lg)] backdrop-blur-xl md:hidden">
+        <div className="absolute inset-x-4 top-[72px] rounded-2xl border border-border/60 bg-background p-3 shadow-[var(--shadow-lg)] md:hidden">
           <nav className="flex flex-col">
             {NAV.map((item) => (
               <a
