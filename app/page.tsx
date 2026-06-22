@@ -1,15 +1,16 @@
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
+import { LogoStrip } from '@/components/logo-strip'
 import { ProblemSection } from '@/components/problem-section'
 import { FeaturesSection } from '@/components/features-section'
 import { HowItWorks } from '@/components/how-it-works'
 import { ResultsSection } from '@/components/results-section'
 import { IntegrationSection } from '@/components/integration-section'
-import { Testimonials } from '@/components/testimonials'
 import { FaqSection } from '@/components/faq-section'
 import { CtaSection } from '@/components/cta-section'
-import { ArticlesSection } from '@/components/articles-section'
 import { SiteFooter } from '@/components/site-footer'
+import { Background } from '@/components/ui/background'
+import { DashedLine } from '@/components/ui/dashed-line'
 
 const SITE_URL = 'https://rezlv.com'
 
@@ -27,7 +28,7 @@ const jsonLd = {
         contentUrl: `${SITE_URL}/icon.svg`,
       },
       description:
-        'rezlv is the decision layer for returns and CX exceptions for Shopify and DTC brands. It surfaces brand policy inside every agent reply, enforces ownership of every exception, and drafts on-policy, human-approved responses.',
+        'rezlv is a decision version control platform for ecommerce brands. It captures how operational decisions are actually made, organizes them into searchable knowledge, and governs how policies evolve over time.',
       sameAs: [
         'https://twitter.com/rezlv',
         'https://linkedin.com/company/rezlv',
@@ -35,12 +36,12 @@ const jsonLd = {
       foundingDate: '2024',
       numberOfEmployees: { '@type': 'QuantitativeValue', value: '2' },
       knowsAbout: [
-        'ecommerce returns automation',
-        'DTC customer experience',
-        'Shopify refund management',
-        'customer service AI',
-        'returns policy enforcement',
-        'CX decision software',
+        'decision version control',
+        'ecommerce operational accountability',
+        'DTC decision management',
+        'operational decision intelligence',
+        'decision infrastructure',
+        'ecommerce policy governance',
       ],
     },
     {
@@ -48,7 +49,7 @@ const jsonLd = {
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
       name: 'rezlv',
-      description: 'Returns & CX decisions, correct by default',
+      description: 'Decision version control for ecommerce operations',
       publisher: { '@id': `${SITE_URL}/#organization` },
       potentialAction: {
         '@type': 'SearchAction',
@@ -64,11 +65,11 @@ const jsonLd = {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: 'rezlv: Returns & CX decisions, correct by default',
+      name: 'rezlv: Decision version control for ecommerce operations',
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@id': `${SITE_URL}/#organization` },
       description:
-        'rezlv is the decision layer for Shopify & DTC brands. Surface your returns and refund logic inside every agent reply, enforce ownership of every exception, and ship on-policy, human-approved responses.',
+        'rezlv captures how operational decisions are actually made across returns, escalations, edge cases, and disputes — then turns them into searchable, version-controlled organizational knowledge.',
       inLanguage: 'en-US',
       breadcrumb: {
         '@type': 'BreadcrumbList',
@@ -88,29 +89,21 @@ const jsonLd = {
       name: 'rezlv',
       alternateName: ['rezlv.com', 'Rezlv'],
       applicationCategory: 'BusinessApplication',
-      applicationSubCategory: 'Ecommerce Decision Management',
+      applicationSubCategory: 'Decision Version Control',
       operatingSystem: 'Web',
       url: SITE_URL,
       description:
-        'rezlv is the decision layer for returns and CX exceptions for Shopify and DTC brands. It surfaces brand policy inside every reply, enforces ownership of every exception, and drafts on-policy, human-approved responses.',
+        'rezlv is a decision version control platform for ecommerce brands. It captures, organizes, recommends, and governs operational decisions across returns, escalations, edge cases, and disputes.',
       featureList: [
-        'Returns policy decision engine',
+        'Automatic decision capture from operational tools',
+        'Decision history with policy and precedent linking',
+        'Precedent-based decision recommendations',
+        'Policy evolution tracking and governance',
+        'Decision ownership and accountability',
+        'Shopify, Gorgias, and Zendesk integration',
         'Human-in-the-loop approval workflow',
-        'Shopify integration',
-        'Gorgias and Zendesk helpdesk integration',
-        'Exception ownership tracking',
-        'On-policy draft replies',
-        'CX accountability logging',
       ],
-      screenshot: `${SITE_URL}/hero-decision-mockup.png`,
-      video: {
-        '@type': 'VideoObject',
-        name: 'rezlv product walkthrough',
-        description: 'See how rezlv surfaces your returns and CX policy inside every agent reply, enforces ownership of every exception, and drafts on-policy responses for human approval.',
-        thumbnailUrl: `${SITE_URL}/hero-decision-mockup.png`,
-        uploadDate: '2024-01-01',
-        embedUrl: `${SITE_URL}/#demo`,
-      },
+      screenshot: `${SITE_URL}/hero.webp`,
       offers: {
         '@type': 'Offer',
         price: '0',
@@ -127,10 +120,42 @@ const jsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
+          name: 'What does decision version control actually mean?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Every time your team makes an operational call — approving a refund, handling an edge case, escalating a dispute — that decision is logged with who, what, why, and what precedent supported it. Over time, you can see how your decision-making evolves, where it drifts, and where policies need updating.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is rezlv different from a knowledge base or wiki?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Wikis are passive — they require someone to remember to check them. rezlv is active. It captures decisions as they happen, surfaces relevant precedent at the moment of action, and tracks how policies evolve.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How is rezlv different from CX automation tools?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'CX automation tools automate responses. rezlv governs decisions. We don\'t replace your helpdesk — we connect to it and create a decision layer on top.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'At what stage do brands need this?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'The pain typically starts at the $500K+ revenue mark with 7–10 team members. By $2M and 15 people, the lack of decision infrastructure becomes a visible growth blocker.',
+          },
+        },
+        {
+          '@type': 'Question',
           name: 'Does rezlv send refunds automatically?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No — and that is the point. rezlv drafts on-policy replies and recommends decisions, but a human approves before anything goes out. It is human-in-the-loop by design so it can never promise an outcome you would not honor.',
+            text: 'No — and that is the point. rezlv surfaces precedents and recommends decisions, but a human approves before anything goes out. It is human-in-the-loop by design.',
           },
         },
         {
@@ -138,23 +163,7 @@ const jsonLd = {
           name: 'What does rezlv integrate with?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'rezlv connects to Shopify and one helpdesk (like Gorgias or Zendesk) to start. The surface is deliberately narrow so setup is fast and the decision logic stays sharp.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How long does rezlv setup take?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Most brands go from kickoff to routing real decisions within two weeks. Mapping your policy into a decision tree is a working session, not a multi-quarter project.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'Who is rezlv for?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'DTC and ecommerce brands in the $500K–$10M range with 7–25 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. Especially sharp for teams where the Head of CX or Ops Manager is constantly answering the same internal questions, training new agents on the same edge cases, or where a key person leaving would take half the operational knowledge with them.',
+            text: 'rezlv connects to your ecommerce store and operational tools — currently supporting Shopify, Gorgias, Zendesk, and email.',
           },
         },
         {
@@ -162,23 +171,7 @@ const jsonLd = {
           name: 'We already have SOPs. Why do we still need this?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'SOPs tell your team what the policy is. They don\'t enforce it inside the moment a decision gets made. That\'s why two agents can read the same SOP and still handle the same return differently — one refunds, one offers store credit, one escalates. rezlv embeds the decision logic into the reply your agent is already writing, so the right call surfaces by default instead of relying on someone remembering what the doc said.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'How is rezlv different from an AI chatbot?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Chatbots try to answer everything autonomously and often go off-policy. rezlv is a decision and accountability layer: it enforces your rules, assigns ownership of every exception, and logs deviations — with a human in the loop.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'What is rezlv.com?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'rezlv.com is the home of rezlv, a CX decision platform built for Shopify and DTC brands. It helps brands enforce returns and refund policy consistently, draft on-policy agent replies, and keep humans accountable for every exception.',
+            text: 'SOPs tell your team what the policy is. They don\'t track whether anyone followed it, how similar cases were handled, or when the policy drifted. rezlv captures the actual decisions your team makes and turns that into governed, searchable knowledge.',
           },
         },
       ],
@@ -195,16 +188,40 @@ export default function Page() {
       />
       <SiteHeader />
       <main>
-        <Hero />
+        <Background variant="top">
+          <Hero />
+          <LogoStrip />
+        </Background>
+
+        <div className="mx-auto max-w-6xl px-4">
+          <DashedLine className="my-0" />
+        </div>
+
         <ProblemSection />
-        <FeaturesSection />
+
+        <div className="mx-auto max-w-6xl px-4">
+          <DashedLine className="my-0" />
+        </div>
+
         <HowItWorks />
+        <FeaturesSection />
         <IntegrationSection />
+
+        <div className="mx-auto max-w-6xl px-4">
+          <DashedLine className="my-0" />
+        </div>
+
         <ResultsSection />
-        <Testimonials />
+
+        <div className="mx-auto max-w-6xl px-4">
+          <DashedLine className="my-0" />
+        </div>
+
         <FaqSection />
-        <CtaSection />
-        <ArticlesSection />
+
+        <Background variant="bottom">
+          <CtaSection />
+        </Background>
       </main>
       <SiteFooter />
     </>

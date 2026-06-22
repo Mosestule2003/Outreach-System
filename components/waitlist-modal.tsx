@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase'
 
 const CHALLENGES = [
   { value: 'consistency', label: 'Inconsistent CX / refund decisions across agents' },
-  { value: 'ownership', label: 'No one owns the exception when things go wrong' },
+  { value: 'ownership', label: 'No one owns the decision when things go wrong' },
   { value: 'founder-bottleneck', label: 'Everything still routes back through me (founder)' },
   { value: 'onboarding', label: 'New hires take too long to make correct calls' },
   { value: 'off-policy-ai', label: 'AI agent making off-policy promises' },

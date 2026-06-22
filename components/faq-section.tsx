@@ -1,35 +1,42 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Reveal } from '@/components/reveal'
 import { trackEvent } from '@/lib/analytics'
 
 const FAQS = [
   {
-    q: 'Does rezlv send refunds automatically?',
-    a: 'No — and that\'s the point. rezlv drafts on-policy replies and recommends decisions, but a human approves before anything goes out. It\'s human-in-the-loop by design so it can never promise an outcome you wouldn\'t honor.',
+    q: 'What does "decision version control" actually mean?',
+    a: 'Every time your team makes an operational call — approving a refund, handling an edge case, escalating a dispute — rezlv logs what was decided, who decided it, why, and what precedent supported it. Over time, you can see how your decision-making evolves and where policies need updating.',
+  },
+  {
+    q: 'How is this different from a knowledge base or wiki?',
+    a: 'Wikis are passive — they require someone to remember to check them. rezlv is active. It captures decisions as they happen, surfaces relevant precedent at the moment of action, and tracks how policies evolve over time.',
+  },
+  {
+    q: 'How is this different from CX automation tools?',
+    a: 'CX automation tools like Gorgias or Zendesk AI automate responses. rezlv governs the decisions behind those responses. We don\'t replace your helpdesk — we connect to it and create a decision layer on top.',
+  },
+  {
+    q: 'At what stage do brands need this?',
+    a: 'The pain typically starts around $500K+ in annual revenue with 7–10 team members. By $2M and 15 people, the lack of decision infrastructure becomes a visible growth blocker.',
+  },
+  {
+    q: 'Does rezlv send refunds or take actions automatically?',
+    a: 'No. rezlv surfaces precedents and recommends decisions, but a human always approves before anything goes out. It\'s human-in-the-loop by design.',
   },
   {
     q: 'What does it integrate with?',
-    a: 'rezlv connects to your ecommerce store and your helpdesk — currently supporting Shopify, Gorgias, and Zendesk. We pull customer profiles, full ticket and conversation history, agent assignments, CSAT scores, and order data into a single decision view. We deliberately keep the integration surface narrow so setup is fast and the decision logic stays sharp.',
+    a: 'rezlv connects to Shopify, Gorgias, Zendesk, and email. We capture how decisions are actually being made across these systems and organize them into a searchable decision history.',
   },
   {
     q: 'How long does setup take?',
-    a: 'Most brands go from kickoff to routing real decisions within two weeks. Mapping your policy into a decision tree is a working session, not a multi-quarter project.',
-  },
-  {
-    q: 'Who is rezlv for?',
-    a: 'DTC and ecommerce brands in the $500K–$10M range with 7–25 people. At that size, founder proximity breaks — you\'ve already bought the tools but the ownership gaps are still there. Especially sharp for teams where the Head of CX or Ops Manager is constantly answering the same internal questions, training new agents on the same edge cases, or where a key person leaving would take half the operational knowledge with them.',
+    a: 'Most brands go from kickoff to capturing real decisions within two weeks. Connecting your tools takes a working session, not a multi-quarter project.',
   },
   {
     q: 'We already have SOPs. Why do we still need this?',
-    a: 'SOPs tell your team what the policy is. They don\'t enforce it inside the moment a decision gets made. That\'s why two agents can read the same SOP and still handle the same return differently — one refunds, one offers store credit, one escalates. rezlv embeds the decision logic into the reply your agent is already writing, so the right call surfaces by default instead of relying on someone remembering what the doc said.',
-  },
-  {
-    q: 'How is this different from my helpdesk AI or a chatbot?',
-    a: 'Your helpdesk unifies the inbox — but agents still need your brand\'s judgment to answer correctly. Chatbots try to resolve everything autonomously and regularly make promises your policy doesn\'t cover. rezlv is the decision and accountability layer that sits on top: it enforces your specific rules, surfaces the right call inside the reply your agent is writing, assigns ownership of every exception, and logs deviations — with a human approving before anything goes out.',
+    a: 'SOPs tell your team what the policy is. They don\'t track whether anyone followed it, how similar cases were handled, or when the policy drifted. rezlv captures the actual decisions your team makes and turns that into governed, searchable knowledge.',
   },
 ]
 
@@ -46,9 +53,9 @@ export function FaqSection() {
 
   return (
     <section id="faq" className="scroll-mt-24 px-4 py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-        <Reveal>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">FAQ</p>
+      <div className="mx-auto max-w-3xl">
+        <Reveal variant="blur" className="text-center">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">FAQ</p>
           <h2 className="mt-4 text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             Questions, answered.
           </h2>
@@ -68,34 +75,61 @@ export function FaqSection() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="divide-y divide-border rounded-3xl border border-border bg-card">
+          <div className="mt-12 flex flex-col gap-2">
             {FAQS.map((item, i) => {
               const isOpen = open === i
               return (
-                <div key={item.q} className="px-6">
+                <div
+                  key={item.q}
+                  className={cn(
+                    'rounded-2xl border transition-all duration-300',
+                    isOpen
+                      ? 'border-foreground/10 bg-card shadow-[var(--shadow-md)]'
+                      : 'border-border bg-card/50 hover:bg-card',
+                  )}
+                >
                   <button
                     type="button"
                     onClick={() => toggle(i, item.q)}
                     aria-expanded={isOpen}
-                    className="flex w-full items-center justify-between gap-4 py-5 text-left"
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <span className="text-base font-medium text-foreground">{item.q}</span>
-                    <Plus
+                    <span className={cn(
+                      'text-[15px] font-medium transition-colors',
+                      isOpen ? 'text-foreground' : 'text-foreground/80',
+                    )}>
+                      {item.q}
+                    </span>
+                    <span
                       className={cn(
-                        'size-5 shrink-0 text-muted-foreground transition-transform duration-300',
-                        isOpen && 'rotate-45',
+                        'flex size-7 shrink-0 items-center justify-center rounded-full border transition-all duration-300',
+                        isOpen
+                          ? 'border-foreground/20 bg-foreground text-background rotate-0'
+                          : 'border-border bg-muted text-muted-foreground rotate-0',
                       )}
-                    />
+                    >
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 12 12"
+                        fill="none"
+                        className={cn('transition-transform duration-300', isOpen && 'rotate-45')}
+                      >
+                        <path d="M6 2v8M2 6h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      </svg>
+                    </span>
                   </button>
                   <div
                     className={cn(
                       'grid transition-all duration-300 ease-out',
-                      isOpen ? 'grid-rows-[1fr] pb-5 opacity-100' : 'grid-rows-[0fr] opacity-0',
+                      isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0',
                     )}
                   >
-                    <p className="overflow-hidden text-sm leading-relaxed text-muted-foreground">
-                      {item.a}
-                    </p>
+                    <div className="overflow-hidden px-6 pb-5">
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {item.a}
+                      </p>
+                    </div>
                   </div>
                 </div>
               )

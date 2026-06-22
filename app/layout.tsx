@@ -16,39 +16,38 @@ const SITE_URL = 'https://rezlv.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'rezlv: Returns & CX decisions, correct by default',
+    default: 'rezlv: Decision version control for ecommerce operations',
     template: '%s · rezlv',
   },
   description:
-    'rezlv is the decision layer for Shopify & DTC brands. Surface your returns and refund logic inside every agent reply, enforce ownership of every exception, and ship on-policy, human-approved responses — so the right call happens by default.',
+    'rezlv captures how operational decisions are actually made — across returns, escalations, edge cases, and disputes — then turns them into searchable, version-controlled organizational knowledge.',
   keywords: [
-    'returns automation',
-    'refund decision software',
-    'Shopify customer support',
-    'DTC CX tools',
-    'returns policy enforcement',
-    'customer service AI',
-    'refund workflow',
-    'ecommerce returns management',
-    'Shopify returns policy AI',
-    'DTC refund automation tool',
-    'customer experience automation',
-    'ecommerce CX platform',
-    'returns management software',
-    'Shopify refund automation',
-    'human in the loop CX',
-    'returns exception handling',
+    'decision version control',
+    'ecommerce decision management',
+    'operational accountability',
+    'decision infrastructure',
+    'DTC operations platform',
+    'ecommerce policy governance',
+    'decision intelligence',
+    'operational decision tracking',
+    'Shopify operations tool',
+    'DTC decision system',
+    'ecommerce accountability software',
+    'returns decision management',
+    'policy version control',
+    'decision audit trail',
     'Gorgias Zendesk integration',
-    'DTC brand customer service tool',
-    'returns decision engine',
+    'operational knowledge management',
+    'decision precedent system',
+    'ecommerce decision layer',
     'rezlv',
     'rezlv.com',
-    'on-policy customer replies',
-    'Shopify helpdesk automation',
-    'ecommerce support AI',
-    'refund policy enforcement software',
-    'CX decision layer',
-    'customer support accountability',
+    'tribal knowledge solution',
+    'decision consistency platform',
+    'ecommerce policy enforcement',
+    'operational decision intelligence',
+    'decision governance software',
+    'scaling ecommerce operations',
   ],
   authors: [{ name: 'rezlv', url: SITE_URL }],
   creator: 'rezlv',
@@ -66,15 +65,15 @@ export const metadata: Metadata = {
     type: 'website',
     url: SITE_URL,
     siteName: 'rezlv',
-    title: 'rezlv: Returns & CX decisions, correct by default',
+    title: 'rezlv: Decision version control for ecommerce operations',
     description:
-      'The decision layer for Shopify & DTC brands. Consistent returns and refund calls, enforced ownership, and on-policy human-approved replies.',
+      'rezlv captures how operational decisions are actually made and turns them into searchable, version-controlled organizational knowledge.',
     images: [
       {
-        url: '/hero-decision-mockup.png',
+        url: '/hero.webp',
         width: 1200,
         height: 630,
-        alt: 'rezlv — Returns & CX decision platform for Shopify and DTC brands',
+        alt: 'rezlv — Decision version control for ecommerce operations',
       },
     ],
     locale: 'en_US',
@@ -83,10 +82,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@rezlv',
     creator: '@rezlv',
-    title: 'rezlv: Returns & CX decisions, correct by default',
+    title: 'rezlv: Decision version control for ecommerce operations',
     description:
-      'The decision layer for Shopify & DTC brands. Consistent returns and refund calls, enforced ownership, and on-policy human-approved replies.',
-    images: ['/hero-decision-mockup.png'],
+      'rezlv captures how operational decisions are actually made and turns them into searchable, version-controlled organizational knowledge.',
+    images: ['/hero.webp'],
   },
   robots: {
     index: true,
@@ -125,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} bg-background`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} light bg-background`}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />

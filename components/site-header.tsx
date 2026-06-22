@@ -16,7 +16,6 @@ const NAV = [
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const { openWaitlist } = useWaitlist()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -31,13 +30,13 @@ export function SiteHeader() {
         className={cn(
           'flex w-full max-w-6xl items-center justify-between rounded-full border border-transparent px-4 py-2.5 transition-all duration-500',
           scrolled
-            ? 'border-border/60 bg-background/80 shadow-sm backdrop-blur-xl'
+            ? 'border-border/60 bg-background/80 shadow-[var(--shadow-sm)] backdrop-blur-xl'
             : 'bg-transparent',
         )}
       >
         <a href="#top" className="flex items-center gap-2 pl-1">
-          <span className="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <span className="size-3 rounded-full bg-accent" />
+          <span className="flex size-7 items-center justify-center rounded-lg bg-foreground text-background">
+            <span className="size-3 rounded-full bg-background" />
           </span>
           <span className="text-lg font-semibold tracking-tight">rezlv</span>
         </a>
@@ -48,7 +47,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={() => trackEvent('nav_click', { label: item.label, location: 'header' })}
-              className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="interactive-link rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
@@ -60,14 +59,14 @@ export function SiteHeader() {
             source="header"
             className="hidden rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:inline-flex"
           >
-            Join waitlist
+            Request access
           </WaitlistButton>
           <a
             href="https://calendar.app.google/L2M8WNnoBo3ufACb7"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('book_walkthrough_click', { location: 'header' })}
-            className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform duration-300 hover:scale-[1.03]"
+            className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-[0.98]"
           >
             Book a walkthrough
           </a>
@@ -88,7 +87,7 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="absolute inset-x-4 top-[72px] rounded-3xl border border-border/60 bg-background/95 p-3 shadow-lg backdrop-blur-xl md:hidden">
+        <div className="absolute inset-x-4 top-[72px] rounded-2xl border border-border/60 bg-background/95 p-3 shadow-[var(--shadow-lg)] backdrop-blur-xl md:hidden">
           <nav className="flex flex-col">
             {NAV.map((item) => (
               <a
@@ -98,7 +97,7 @@ export function SiteHeader() {
                   setOpen(false)
                   trackEvent('nav_click', { label: item.label, location: 'header_mobile' })
                 }}
-                className="rounded-2xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                className="rounded-xl px-4 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
               >
                 {item.label}
               </a>
@@ -106,9 +105,9 @@ export function SiteHeader() {
             <WaitlistButton
               source="header_mobile"
               onClick={() => setOpen(false)}
-              className="text-left rounded-2xl px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-muted"
+              className="text-left rounded-xl px-4 py-3 text-sm font-medium text-muted-foreground hover:bg-muted"
             >
-              Join waitlist
+              Request access
             </WaitlistButton>
           </nav>
         </div>
