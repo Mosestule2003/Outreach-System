@@ -1,14 +1,19 @@
 'use client'
 
-import { ReactNode } from 'react'
+import { ReactNode, lazy, Suspense } from 'react'
 import { WaitlistProvider } from './waitlist-context'
-import { WaitlistModal } from './waitlist-modal'
+
+const WaitlistModal = lazy(() =>
+  import('./waitlist-modal').then((m) => ({ default: m.WaitlistModal }))
+)
 
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <WaitlistProvider>
       {children}
-      <WaitlistModal />
+      <Suspense fallback={null}>
+        <WaitlistModal />
+      </Suspense>
     </WaitlistProvider>
   )
 }
