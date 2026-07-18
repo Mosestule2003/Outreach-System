@@ -63,19 +63,19 @@ export function IntegrationSection() {
               >
                 <div className={`px-6 py-5 text-[16px] flex items-center gap-3 ${row.highlight ? 'font-black text-zinc-950 dark:text-white text-lg' : 'font-extrabold text-zinc-700 dark:text-zinc-200'}`}>
                   {row.src && (
-                    <div className="size-8 flex items-center justify-center shrink-0 p-0.5">
+                    <div className="size-12 flex items-center justify-center shrink-0 p-0.5">
                       <Image 
                         src={row.src} 
                         alt={row.name} 
-                        width={32} 
-                        height={32} 
+                        width={48} 
+                        height={48} 
                         className="w-full h-full object-contain"
                         unoptimized
                       />
                     </div>
                   )}
                   {!row.src && !row.highlight && (
-                    <div className="size-8 shrink-0" />
+                    <div className="size-12 shrink-0" />
                   )}
                   {row.name}
                 </div>
