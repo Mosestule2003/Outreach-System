@@ -579,3 +579,10 @@ it's done. Purolator/Canpar/Loomis Express logo assets still needed
 **Docs touched:** 05
 **Blocked on:** Missing URLs for `About`, `Privacy`, `Terms` (in footer) and a placeholder link in `signup/page.tsx`.
 **Next:** Awaiting Moses to provide the missing links or approve Stage 2 (website copy transcript) before proceeding.
+
+## 2026-07-17 22:45 (agent: gemini)
+**Did:** Completely overhauled the competitor comparison table based on architectural differentiators found in SRS/Exceptions docs (Customer Self-Serve Fix, Carrier Assembly, Pricing Model). Updated `next.config.mjs` to fetch live company logos via Clearbit and implemented a bold 5-column CSS grid. Verified build and pushed to `website-edits`.
+**Why:** Moses rejected the previous mild table update and demanded a heavily-researched, multi-column matrix that aggressively highlights why Rezlv is different, with actual company logos attached.
+**Docs touched:** 05
+**Blocked on:** Same missing URLs as above.
+**Next:** Move to Stage 2 (Google Stitch transcript).
