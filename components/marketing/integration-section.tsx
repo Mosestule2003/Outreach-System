@@ -3,19 +3,19 @@ import { Reveal } from '@/components/marketing/reveal'
 import { Check, X } from 'lucide-react'
 
 const COMPARISON = [
-  { name: 'Narvar', notifies: true, selfServe: false },
-  { name: 'AfterShip', notifies: true, selfServe: false },
-  { name: 'parcelLab', notifies: true, selfServe: false },
-  { name: 'ClickPost', notifies: true, selfServe: false },
-  { name: '"Carriers handle it"', notifies: false, selfServe: false },
+  { name: 'Narvar', notifies: true, selfServe: false, color: '#2B2B2B' },
+  { name: 'AfterShip', notifies: true, selfServe: false, color: '#1B47FF' },
+  { name: 'parcelLab', notifies: true, selfServe: false, color: '#4B286D' },
+  { name: 'ClickPost', notifies: true, selfServe: false, color: '#1877F2' },
+  { name: '"Carriers handle it"', notifies: false, selfServe: false, color: '#9CA3AF' },
   { name: 'Rezlv', notifies: true, selfServe: true, highlight: true },
 ]
 
 function Cell({ ok }: { ok: boolean }) {
   return ok ? (
-    <Check className="mx-auto size-4" style={{ color: 'var(--accent-green-ink)' }} />
+    <Check className="mx-auto size-5 text-[#E33B76]" strokeWidth={2.5} />
   ) : (
-    <X className="mx-auto size-4 text-muted-foreground/40" />
+    <X className="mx-auto size-5 text-zinc-300 dark:text-zinc-700" strokeWidth={1.5} />
   )
 }
 
@@ -48,23 +48,23 @@ export function IntegrationSection() {
         </Reveal>
 
         <Reveal delay={100} className="mx-auto mt-14 max-w-2xl">
-          <div className="overflow-hidden rounded-xl bg-card shadow-[var(--shadow-sm)]">
-            <div className="grid grid-cols-[1.4fr_1fr_1fr] bg-muted/50">
-              <div className="px-5 py-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Platform</div>
-              <div className="px-5 py-3 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">Notifies</div>
-              <div className="px-5 py-3 text-center text-xs font-medium uppercase tracking-wider text-muted-foreground">Customer self-serve fix</div>
+          <div className="overflow-hidden rounded-[16px] bg-white border border-zinc-100 shadow-sm dark:bg-zinc-950 dark:border-zinc-800">
+            <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-zinc-100 dark:border-zinc-800 bg-transparent">
+              <div className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">Platform</div>
+              <div className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-zinc-500">Notifies</div>
+              <div className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-zinc-500">Customer self-serve fix</div>
             </div>
-            {COMPARISON.map((row) => (
+            {COMPARISON.map((row, idx) => (
               <div
                 key={row.name}
-                className="grid grid-cols-[1.4fr_1fr_1fr] items-center border-t border-border"
-                style={row.highlight ? { backgroundColor: 'var(--accent-green-soft)' } : undefined}
+                className={`grid grid-cols-[1.4fr_1fr_1fr] items-center ${idx !== COMPARISON.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800' : ''} ${row.highlight ? 'bg-[#FDF2F7] dark:bg-pink-950/20' : 'bg-white dark:bg-zinc-950'}`}
               >
-                <div className={`px-5 py-3.5 text-sm ${row.highlight ? 'font-semibold' : 'text-muted-foreground'}`}>
+                <div className={`px-6 py-4 text-[15px] flex items-center ${row.highlight ? 'font-bold text-zinc-900 dark:text-white' : 'font-medium text-zinc-600 dark:text-zinc-300'}`}>
+                  {row.color && <span className="mr-3 inline-block size-2.5 rounded-full" style={{ backgroundColor: row.color }} />}
                   {row.name}
                 </div>
-                <div className="px-5 py-3.5"><Cell ok={row.notifies} /></div>
-                <div className="px-5 py-3.5"><Cell ok={row.selfServe} /></div>
+                <div className="px-6 py-4"><Cell ok={row.notifies} /></div>
+                <div className="px-6 py-4"><Cell ok={row.selfServe} /></div>
               </div>
             ))}
           </div>

@@ -572,3 +572,10 @@ it's done. Purolator/Canpar/Loomis Express logo assets still needed
 (carried over from the previous entry).
 **Next:** still awaiting Moses's go-ahead on the website copy transcript
 (Stage 2 prep) or further schema/backend work.
+
+## 2026-07-17 22:36 (agent: gemini)
+**Did:** Finalized Phase 1 frontend cleanup: removed pricing formula/hypothesis text, removed footer "Preview onboarding" link, audited entire codebase for missing links, successfully ran `npm run build` to verify performance (compiled 100% static in 7.4s), and pushed all changes to GitHub branch `website-edits`.
+**Why:** Moses confirmed the website edit was done and requested a final polish/performance check before pushing a clean branch for review.
+**Docs touched:** 05
+**Blocked on:** Missing URLs for `About`, `Privacy`, `Terms` (in footer) and a placeholder link in `signup/page.tsx`.
+**Next:** Awaiting Moses to provide the missing links or approve Stage 2 (website copy transcript) before proceeding.
