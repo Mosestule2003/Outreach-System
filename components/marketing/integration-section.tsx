@@ -101,16 +101,16 @@ export function IntegrationSection() {
           <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
             {STACK_TILES.map((tile, i) => (
               <Reveal key={tile.name} delay={i * 70} variant="scale">
-                <div className="rounded-[16px] border border-zinc-200 bg-white dark:bg-white flex h-full flex-col items-center justify-center gap-3 p-6 shadow-sm hover:shadow-md cursor-pointer transition-shadow">
+                <div className="rounded-[16px] bg-white dark:bg-white flex h-full flex-col items-center justify-center gap-4 p-6 cursor-pointer hover:scale-105 transition-transform duration-300">
                   <Image 
                     src={tile.src} 
                     alt={tile.name} 
-                    width={120} 
-                    height={40} 
-                    className="h-10 w-auto object-contain" 
+                    width={160} 
+                    height={56} 
+                    className="h-14 w-auto object-contain" 
                     unoptimized
                   />
-                  <span className="text-xs font-bold text-zinc-600">{tile.name}</span>
+                  <span className="text-sm font-black text-zinc-800">{tile.name}</span>
                 </div>
               </Reveal>
             ))}
