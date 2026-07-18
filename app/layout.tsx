@@ -1,12 +1,23 @@
 import { Analytics } from '@vercel/analytics/next'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Inter, Poppins, Roboto_Mono } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'], display: 'swap' })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  display: 'swap',
+})
+const poppins = Poppins({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['600'],
+  display: 'swap',
+})
+const robotoMono = Roboto_Mono({
+  variable: '--font-roboto-mono',
   subsets: ['latin'],
   display: 'swap',
 })
@@ -16,42 +27,36 @@ const SITE_URL = 'https://rezlv.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'rezlv: Decision version control for ecommerce operations',
-    template: '%s · rezlv',
+    default: 'Rezlv: Delivery exceptions, automatically resolved',
+    template: '%s · Rezlv',
   },
   description:
-    'rezlv captures how operational decisions are actually made — across returns, escalations, edge cases, and disputes — then turns them into searchable, version-controlled organizational knowledge.',
+    'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier. No CS ticket, no manual work.',
   keywords: [
-    'decision version control',
-    'ecommerce decision management',
-    'operational accountability',
-    'decision infrastructure',
-    'DTC operations platform',
-    'ecommerce policy governance',
-    'decision intelligence',
-    'operational decision tracking',
-    'Shopify operations tool',
-    'DTC decision system',
-    'ecommerce accountability software',
-    'returns decision management',
-    'policy version control',
-    'decision audit trail',
-    'Gorgias Zendesk integration',
-    'operational knowledge management',
-    'decision precedent system',
-    'ecommerce decision layer',
+    'exception resolution orchestration',
+    'delivery exception automation',
+    'failed delivery software',
+    'NDR automation',
+    'RTO prevention',
+    'return to sender prevention',
+    'UPS delivery intercept API',
+    'USPS address correction API',
+    'Shopify fulfillment automation',
+    'DTC shipping software',
+    'WISMO deflection',
+    'carrier exception management',
+    'address correction automation',
+    'Shopify delivery exceptions',
+    'post-purchase automation',
+    'CS ticket deflection',
     'rezlv',
     'rezlv.com',
-    'tribal knowledge solution',
-    'decision consistency platform',
-    'ecommerce policy enforcement',
-    'operational decision intelligence',
-    'decision governance software',
-    'scaling ecommerce operations',
+    'Shopify DTC operations software',
+    'delivery recovery automation',
   ],
-  authors: [{ name: 'rezlv', url: SITE_URL }],
-  creator: 'rezlv',
-  publisher: 'rezlv',
+  authors: [{ name: 'Rezlv', url: SITE_URL }],
+  creator: 'Rezlv',
+  publisher: 'Rezlv',
   category: 'Business Software',
   alternates: {
     canonical: SITE_URL,
@@ -64,16 +69,16 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: SITE_URL,
-    siteName: 'rezlv',
-    title: 'rezlv: Decision version control for ecommerce operations',
+    siteName: 'Rezlv',
+    title: 'Rezlv: Delivery exceptions, automatically resolved',
     description:
-      'rezlv captures how operational decisions are actually made and turns them into searchable, version-controlled organizational knowledge.',
+      'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier. No CS ticket, no manual work.',
     images: [
       {
         url: '/hero.webp',
         width: 1200,
         height: 630,
-        alt: 'rezlv — Decision version control for ecommerce operations',
+        alt: 'Rezlv: Exception Resolution Orchestration for Shopify DTC brands',
       },
     ],
     locale: 'en_US',
@@ -82,9 +87,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@rezlv',
     creator: '@rezlv',
-    title: 'rezlv: Decision version control for ecommerce operations',
+    title: 'Rezlv: Delivery exceptions, automatically resolved',
     description:
-      'rezlv captures how operational decisions are actually made and turns them into searchable, version-controlled organizational knowledge.',
+      'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier.',
     images: ['/hero.webp'],
   },
   robots: {
@@ -124,7 +129,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} light bg-background`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${robotoMono.variable} light bg-background`}>
       <head>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />

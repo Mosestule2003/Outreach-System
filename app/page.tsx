@@ -1,15 +1,15 @@
-import { SiteHeader } from '@/components/site-header'
-import { Hero } from '@/components/hero'
-import { LogoStrip } from '@/components/logo-strip'
-import { ProblemSection } from '@/components/problem-section'
-import { FeaturesSection } from '@/components/features-section'
-import { HowItWorks } from '@/components/how-it-works'
-import { ResultsSection } from '@/components/results-section'
-import { IntegrationSection } from '@/components/integration-section'
-import { FaqSection } from '@/components/faq-section'
-import { CtaSection } from '@/components/cta-section'
-import { SiteFooter } from '@/components/site-footer'
-import { Background } from '@/components/ui/background'
+import { SiteHeader } from '@/components/marketing/site-header'
+import { Hero } from '@/components/marketing/hero'
+import { LogoStrip } from '@/components/marketing/logo-strip'
+import { ProblemSection } from '@/components/marketing/problem-section'
+import { PillarsSection } from '@/components/marketing/features-section'
+import { HowItWorks } from '@/components/marketing/how-it-works'
+import { ResultsSection } from '@/components/marketing/results-section'
+import { IntegrationSection } from '@/components/marketing/integration-section'
+import { PricingSection } from '@/components/marketing/pricing-section'
+import { FaqSection } from '@/components/marketing/faq-section'
+import { CtaSection } from '@/components/marketing/cta-section'
+import { SiteFooter } from '@/components/marketing/site-footer'
 import { DashedLine } from '@/components/ui/dashed-line'
 
 const SITE_URL = 'https://rezlv.com'
@@ -20,7 +20,7 @@ const jsonLd = {
     {
       '@type': 'Organization',
       '@id': `${SITE_URL}/#organization`,
-      name: 'rezlv',
+      name: 'Rezlv',
       url: SITE_URL,
       logo: {
         '@type': 'ImageObject',
@@ -28,28 +28,28 @@ const jsonLd = {
         contentUrl: `${SITE_URL}/icon.svg`,
       },
       description:
-        'rezlv is a decision version control platform for ecommerce brands. It captures how operational decisions are actually made, organizes them into searchable knowledge, and governs how policies evolve over time.',
+        'Rezlv is an exception resolution orchestration platform for Canadian Shopify DTC brands. It detects failed deliveries, contacts the customer, and prepares the fix for the carrier — ready for the merchant to confirm in one click.',
       sameAs: [
         'https://twitter.com/rezlv',
         'https://linkedin.com/company/rezlv',
       ],
-      foundingDate: '2024',
-      numberOfEmployees: { '@type': 'QuantitativeValue', value: '2' },
+      foundingDate: '2026',
+      numberOfEmployees: { '@type': 'QuantitativeValue', value: '1' },
       knowsAbout: [
-        'decision version control',
-        'ecommerce operational accountability',
-        'DTC decision management',
-        'operational decision intelligence',
-        'decision infrastructure',
-        'ecommerce policy governance',
+        'exception resolution orchestration',
+        'delivery exception automation',
+        'RTO prevention',
+        'carrier API write-back',
+        'Shopify fulfillment automation',
+        'NDR classification',
       ],
     },
     {
       '@type': 'WebSite',
       '@id': `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: 'rezlv',
-      description: 'Decision version control for ecommerce operations',
+      name: 'Rezlv',
+      description: 'Exception Resolution Orchestration for Shopify DTC brands',
       publisher: { '@id': `${SITE_URL}/#organization` },
       potentialAction: {
         '@type': 'SearchAction',
@@ -59,18 +59,18 @@ const jsonLd = {
         },
         'query-input': 'required name=search_term_string',
       },
-      inLanguage: 'en-US',
+      inLanguage: 'en-CA',
     },
     {
       '@type': 'WebPage',
       '@id': `${SITE_URL}/#webpage`,
       url: SITE_URL,
-      name: 'rezlv: Decision version control for ecommerce operations',
+      name: 'Rezlv: Delivery exceptions, resolved before they become returns',
       isPartOf: { '@id': `${SITE_URL}/#website` },
       about: { '@id': `${SITE_URL}/#organization` },
       description:
-        'rezlv captures how operational decisions are actually made across returns, escalations, edge cases, and disputes — then turns them into searchable, version-controlled organizational knowledge.',
-      inLanguage: 'en-US',
+        'Rezlv detects failed Shopify deliveries, contacts your customer, and prepares the fix for your carrier — a one-click confirm for your team, not a support ticket.',
+      inLanguage: 'en-CA',
       breadcrumb: {
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -86,30 +86,29 @@ const jsonLd = {
     {
       '@type': 'SoftwareApplication',
       '@id': `${SITE_URL}/#software`,
-      name: 'rezlv',
-      alternateName: ['rezlv.com', 'Rezlv'],
+      name: 'Rezlv',
+      alternateName: ['rezlv.com'],
       applicationCategory: 'BusinessApplication',
-      applicationSubCategory: 'Decision Version Control',
+      applicationSubCategory: 'Exception Resolution Orchestration',
       operatingSystem: 'Web',
       url: SITE_URL,
       description:
-        'rezlv is a decision version control platform for ecommerce brands. It captures, organizes, recommends, and governs operational decisions across returns, escalations, edge cases, and disputes.',
+        'Rezlv is an exception resolution orchestration platform for Canadian Shopify brands. It detects delivery exceptions, contacts the customer for a fix, prepares the carrier-ready correction, and updates Shopify automatically once confirmed.',
       featureList: [
-        'Automatic decision capture from operational tools',
-        'Decision history with policy and precedent linking',
-        'Precedent-based decision recommendations',
-        'Policy evolution tracking and governance',
-        'Decision ownership and accountability',
-        'Shopify, Gorgias, and Zendesk integration',
-        'Human-in-the-loop approval workflow',
+        'Automatic delivery exception detection from Shopify and carrier webhooks',
+        'NDR classification: address issue, failed attempt, access issue, carrier delay, customs hold, damaged in transit, lost or stolen, delivery refused',
+        'Automated SMS customer outreach with a secure correction portal',
+        'Ready-to-submit corrections for Canada Post, UPS Canada, Intelcom, Purolator, Canpar Express, Loomis Express, and FedEx Canada',
+        'Automatic Shopify fulfillment record updates',
+        'Merchant dashboard with resolution rate and RTO savings',
       ],
       screenshot: `${SITE_URL}/hero.webp`,
       offers: {
         '@type': 'Offer',
-        price: '0',
-        priceCurrency: 'USD',
-        description: 'Design-partner program — apply to join',
-        availability: 'https://schema.org/LimitedAvailability',
+        price: '8.00',
+        priceCurrency: 'CAD',
+        description: 'Pay only on resolved cases — $8/case for the first 100/month, graduated down to $3/case at 501+',
+        availability: 'https://schema.org/InStock',
       },
       author: { '@id': `${SITE_URL}/#organization` },
       provider: { '@id': `${SITE_URL}/#organization` },
@@ -120,63 +119,63 @@ const jsonLd = {
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What does decision version control actually mean?',
+          name: 'What does Rezlv actually do?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Every time your team makes an operational call — approving a refund, handling an edge case, escalating a dispute — that decision is logged with who, what, why, and what precedent supported it. Over time, you can see how your decision-making evolves, where it drifts, and where policies need updating.',
+            text: 'When a package fails to deliver, Rezlv detects the exception within minutes, texts the customer a secure link to correct the issue, and prepares that correction exactly as the carrier needs it — ready for the merchant to confirm in one click.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How is rezlv different from a knowledge base or wiki?',
+          name: 'How is Rezlv different from AfterShip or Narvar?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Wikis are passive — they require someone to remember to check them. rezlv is active. It captures decisions as they happen, surfaces relevant precedent at the moment of action, and tracks how policies evolve.',
+            text: 'Those are excellent notification tools. They tell your customer something went wrong. Rezlv is the layer that also gets it fixed: customer outreach and carrier-ready corrections in the same automated flow. Most brands run both.',
           },
         },
         {
           '@type': 'Question',
-          name: 'How is rezlv different from CX automation tools?',
+          name: 'Our CS team already handles this. Why do we need it?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'CX automation tools automate responses. rezlv governs decisions. We don\'t replace your helpdesk — we connect to it and create a decision layer on top.',
+            text: 'Most brands spend 2 to 3 days per exception on manual resolution. Rezlv resolves it in under 2 hours, automatically. Your team only sees the 5 to 10 percent of cases that genuinely need human judgment.',
           },
         },
         {
           '@type': 'Question',
-          name: 'At what stage do brands need this?',
+          name: 'What if the customer never responds?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'The pain typically starts at the $500K+ revenue mark with 7–10 team members. By $2M and 15 people, the lack of decision infrastructure becomes a visible growth blocker.',
+            text: 'Rezlv runs a fully agentic escalation ladder before the carrier’s return-to-sender deadline: SMS first, then email, then an AI voice agent as the last attempt. If none of it lands, you are notified and can escalate to CS, offer a nearby pickup point, or let the carrier auto-hold the package.',
           },
         },
         {
           '@type': 'Question',
-          name: 'Does rezlv send refunds automatically?',
+          name: 'Which carriers does Rezlv support?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'No — and that is the point. rezlv surfaces precedents and recommends decisions, but a human approves before anything goes out. It is human-in-the-loop by design.',
+            text: 'Canada Post, UPS Canada, Intelcom, Purolator, Canpar Express, Loomis Express, and FedEx Canada at launch — covering the carriers that actually move Canadian DTC parcel volume, connected through your own carrier accounts (BYOD).',
           },
         },
         {
           '@type': 'Question',
-          name: 'What does rezlv integrate with?',
+          name: 'How long does setup take?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'rezlv connects to your ecommerce store and operational tools — currently supporting Shopify, Gorgias, Zendesk, and email.',
-          },
-        },
-        {
-          '@type': 'Question',
-          name: 'We already have SOPs. Why do we still need this?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'SOPs tell your team what the policy is. They don\'t track whether anyone followed it, how similar cases were handled, or when the policy drifted. rezlv captures the actual decisions your team makes and turns that into governed, searchable knowledge.',
+            text: 'Install is a Shopify webhook connection with no developer work required. Most brands see their first detected exception within 48 hours.',
           },
         },
       ],
     },
   ],
+}
+
+function Divider() {
+  return (
+    <div className="mx-auto max-w-6xl px-4">
+      <DashedLine className="my-0" />
+    </div>
+  )
 }
 
 export default function Page() {
@@ -188,40 +187,21 @@ export default function Page() {
       />
       <SiteHeader />
       <main>
-        <Background variant="top">
-          <Hero />
-          <LogoStrip />
-        </Background>
-
-        <div className="mx-auto max-w-6xl px-4">
-          <DashedLine className="my-0" />
-        </div>
-
+        <Hero />
+        <LogoStrip />
+        <Divider />
         <ProblemSection />
-
-        <div className="mx-auto max-w-6xl px-4">
-          <DashedLine className="my-0" />
-        </div>
-
+        <Divider />
         <HowItWorks />
-        <FeaturesSection />
+        <PillarsSection />
         <IntegrationSection />
-
-        <div className="mx-auto max-w-6xl px-4">
-          <DashedLine className="my-0" />
-        </div>
-
+        <Divider />
         <ResultsSection />
-
-        <div className="mx-auto max-w-6xl px-4">
-          <DashedLine className="my-0" />
-        </div>
-
+        <Divider />
+        <PricingSection />
+        <Divider />
         <FaqSection />
-
-        <Background variant="bottom">
-          <CtaSection />
-        </Background>
+        <CtaSection />
       </main>
       <SiteFooter />
     </>

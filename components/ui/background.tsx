@@ -17,9 +17,9 @@ export const Background = ({
       className={cn(
         "relative",
         variant === "top" &&
-          "from-primary/5 via-background to-background/80 rounded-t-4xl rounded-b-2xl bg-linear-to-b via-20%",
+          "from-primary/5 via-background to-background/80 rounded-t-xl rounded-b-lg bg-linear-to-b via-20%",
         variant === "bottom" &&
-          "from-background via-background to-primary/5 rounded-t-2xl rounded-b-4xl bg-linear-to-b",
+          "from-background via-background to-primary/5 rounded-t-lg rounded-b-xl bg-linear-to-b",
         className,
       )}
     >
