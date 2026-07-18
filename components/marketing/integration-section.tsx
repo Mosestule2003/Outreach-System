@@ -23,7 +23,7 @@ const STACK_TILES = [
   { name: 'Shopify', src: '/logos/Shopify Logo.jpg' },
   { name: 'Canada Post', src: '/logos/Canada Post.jpg' },
   { name: 'UPS Canada', src: '/logos/UPS.png' },
-  { name: 'Intelcom', src: '/logos/Intercom.png' },
+  { name: 'Intelcom', src: '/logos/Intelcom.png' },
   { name: 'Purolator', src: '/logos/Purulator.png' },
   { name: 'Canpar Express', src: '/logos/Canpar.png' },
   { name: 'Loomis Express', src: '/logos/Loomis Express.png' },

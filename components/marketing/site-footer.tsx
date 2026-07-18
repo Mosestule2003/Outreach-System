@@ -25,9 +25,9 @@ const FOOTER_LINKS = [
   {
     heading: 'Company',
     links: [
-      { label: 'About', href: '#' },
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
+      { label: 'About', href: '#' }, // TODO: Add About page URL once built
+      // TODO: Add Privacy Policy page — circle back after all build stages are complete
+      // TODO: Add Terms of Service page — circle back after all build stages are complete
     ],
   },
 ]
