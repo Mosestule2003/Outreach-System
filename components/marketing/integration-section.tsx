@@ -3,12 +3,12 @@ import { Reveal } from '@/components/marketing/reveal'
 import { Check, X } from 'lucide-react'
 
 const COMPARISON = [
-  { name: 'Narvar', domain: 'narvar.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
-  { name: 'AfterShip', domain: 'aftership.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
-  { name: 'parcelLab', domain: 'parcellab.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
-  { name: 'ClickPost', domain: 'clickpost.ai', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
-  { name: '"Carriers handle it"', domain: '', notifies: false, selfServe: false, assembly: false, pricing: 'Hidden Ops Cost' },
-  { name: 'Rezlv', domain: '', notifies: true, selfServe: true, assembly: true, pricing: 'Per Resolved Case', highlight: true },
+  { name: 'Narvar', src: '/logos/NAVAR.png', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'AfterShip', src: '/logos/aftership.png', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'parcelLab', src: '/logos/Parcellab.png', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'ClickPost', src: '/logos/clickpost.png', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: '"Carriers handle it"', src: '', notifies: false, selfServe: false, assembly: false, pricing: 'Hidden Ops Cost' },
+  { name: 'Rezlv', src: '/logos/Rezlv Logo.png', notifies: true, selfServe: true, assembly: true, pricing: 'Per Resolved Case', highlight: true },
 ]
 
 function Cell({ ok }: { ok: boolean }) {
@@ -20,13 +20,13 @@ function Cell({ ok }: { ok: boolean }) {
 }
 
 const STACK_TILES = [
-  { name: 'Shopify', src: '/logos/shopify-color.svg' },
-  { name: 'Canada Post', src: '/logos/canadapost.jpg' },
-  { name: 'UPS Canada', src: '/logos/ups-color.svg' },
-  { name: 'Intelcom', src: '/logos/intelcom.svg' },
-  { name: 'Purolator', src: '/logos/purolator.svg' },
-  { name: 'Canpar Express', src: '/logos/canpar.svg' },
-  { name: 'Loomis Express', src: '/logos/loomis.svg' },
+  { name: 'Shopify', src: '/logos/Shopify Logo.jpg' },
+  { name: 'Canada Post', src: '/logos/Canada Post.jpg' },
+  { name: 'UPS Canada', src: '/logos/UPS.png' },
+  { name: 'Intelcom', src: '/logos/Intercom.png' },
+  { name: 'Purolator', src: '/logos/Purulator.png' },
+  { name: 'Canpar Express', src: '/logos/Canpar.png' },
+  { name: 'Loomis Express', src: '/logos/Loomis Express.png' },
   { name: 'FedEx Canada', src: '/logos/fedex-color.svg' },
 ]
 
@@ -62,24 +62,19 @@ export function IntegrationSection() {
                 className={`grid grid-cols-[1.5fr_1fr_1.2fr_1.2fr_1.2fr] items-center ${idx !== COMPARISON.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800/60' : ''} ${row.highlight ? 'bg-[#FDF2F7] dark:bg-pink-950/20' : 'bg-white dark:bg-zinc-950'} hover:bg-zinc-50/50 dark:hover:bg-zinc-900/30 transition-colors`}
               >
                 <div className={`px-6 py-5 text-[16px] flex items-center gap-3 ${row.highlight ? 'font-black text-zinc-950 dark:text-white text-lg' : 'font-extrabold text-zinc-700 dark:text-zinc-200'}`}>
-                  {row.domain && (
-                    <div className="size-6 overflow-hidden rounded-md bg-white border border-zinc-100 dark:border-zinc-800 shadow-sm flex items-center justify-center shrink-0">
+                  {row.src && (
+                    <div className="size-6 overflow-hidden rounded-md bg-white border border-zinc-100 dark:border-zinc-300 shadow-sm flex items-center justify-center shrink-0 p-0.5">
                       <Image 
-                        src={`https://logo.clearbit.com/${row.domain}`} 
+                        src={row.src} 
                         alt={row.name} 
                         width={24} 
                         height={24} 
-                        className="object-contain p-0.5"
+                        className="w-full h-full object-contain"
                         unoptimized
                       />
                     </div>
                   )}
-                  {row.highlight && !row.domain && (
-                    <div className="size-6 rounded-md bg-[#E33B76] shrink-0 flex items-center justify-center">
-                      <span className="text-white text-[10px] font-black">R</span>
-                    </div>
-                  )}
-                  {!row.domain && !row.highlight && (
+                  {!row.src && !row.highlight && (
                     <div className="size-6 shrink-0" />
                   )}
                   {row.name}
@@ -106,22 +101,23 @@ export function IntegrationSection() {
           <div className="mx-auto mt-8 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
             {STACK_TILES.map((tile, i) => (
               <Reveal key={tile.name} delay={i * 70} variant="scale">
-                <div className="bento-card interactive-card group flex h-full flex-col items-center justify-center gap-3 p-6 hover:shadow-[var(--shadow-md)] cursor-pointer">
+                <div className="rounded-[16px] border border-zinc-200 bg-white dark:bg-white flex h-full flex-col items-center justify-center gap-3 p-6 shadow-sm hover:shadow-md cursor-pointer transition-shadow">
                   <Image 
                     src={tile.src} 
                     alt={tile.name} 
                     width={120} 
-                    height={36} 
-                    className="h-8 w-auto object-contain sm:h-9 grayscale opacity-45 dark:opacity-30 dark:invert group-hover:grayscale-0 group-hover:opacity-100 dark:group-hover:invert-0 transition-all duration-300" 
+                    height={40} 
+                    className="h-10 w-auto object-contain" 
+                    unoptimized
                   />
-                  <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors">{tile.name}</span>
+                  <span className="text-xs font-bold text-zinc-600">{tile.name}</span>
                 </div>
               </Reveal>
             ))}
           </div>
-
         </Reveal>
       </div>
     </section>
   )
+}
 }
