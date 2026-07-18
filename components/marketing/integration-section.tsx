@@ -3,19 +3,19 @@ import { Reveal } from '@/components/marketing/reveal'
 import { Check, X } from 'lucide-react'
 
 const COMPARISON = [
-  { name: 'Narvar', notifies: true, selfServe: false, color: '#2B2B2B' },
-  { name: 'AfterShip', notifies: true, selfServe: false, color: '#1B47FF' },
-  { name: 'parcelLab', notifies: true, selfServe: false, color: '#4B286D' },
-  { name: 'ClickPost', notifies: true, selfServe: false, color: '#1877F2' },
-  { name: '"Carriers handle it"', notifies: false, selfServe: false, color: '#9CA3AF' },
-  { name: 'Rezlv', notifies: true, selfServe: true, highlight: true },
+  { name: 'Narvar', domain: 'narvar.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'AfterShip', domain: 'aftership.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'parcelLab', domain: 'parcellab.com', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: 'ClickPost', domain: 'clickpost.ai', notifies: true, selfServe: false, assembly: false, pricing: 'Enterprise SaaS' },
+  { name: '"Carriers handle it"', domain: '', notifies: false, selfServe: false, assembly: false, pricing: 'Hidden Ops Cost' },
+  { name: 'Rezlv', domain: '', notifies: true, selfServe: true, assembly: true, pricing: 'Per Resolved Case', highlight: true },
 ]
 
 function Cell({ ok }: { ok: boolean }) {
   return ok ? (
-    <Check className="mx-auto size-5 text-[#E33B76]" strokeWidth={2.5} />
+    <Check className="mx-auto size-5 text-[#E33B76]" strokeWidth={3} />
   ) : (
-    <X className="mx-auto size-5 text-zinc-300 dark:text-zinc-700" strokeWidth={1.5} />
+    <X className="mx-auto size-5 text-zinc-300 dark:text-zinc-700" strokeWidth={2} />
   )
 }
 
@@ -33,8 +33,8 @@ const STACK_TILES = [
 export function IntegrationSection() {
   return (
     <section className="px-4 py-20 sm:py-32">
-      <div className="mx-auto max-w-6xl">
-        <Reveal variant="blur" className="mx-auto max-w-2xl text-center">
+      <div className="mx-auto max-w-7xl">
+        <Reveal variant="blur" className="mx-auto max-w-3xl text-center">
           <h2 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
             Everybody notifies. Few let the customer decide the fix.
           </h2>
@@ -47,30 +47,55 @@ export function IntegrationSection() {
           </p>
         </Reveal>
 
-        <Reveal delay={100} className="mx-auto mt-14 max-w-2xl">
-          <div className="overflow-hidden rounded-[16px] bg-white border border-zinc-100 shadow-sm dark:bg-zinc-950 dark:border-zinc-800">
-            <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-zinc-100 dark:border-zinc-800 bg-transparent">
-              <div className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-zinc-500">Platform</div>
-              <div className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-zinc-500">Notifies</div>
-              <div className="px-6 py-4 text-center text-xs font-semibold uppercase tracking-wider text-zinc-500">Customer self-serve fix</div>
+        <Reveal delay={100} className="mx-auto mt-14 max-w-5xl overflow-x-auto pb-4">
+          <div className="min-w-[900px] overflow-hidden rounded-[16px] bg-white border border-zinc-200 shadow-sm dark:bg-zinc-950 dark:border-zinc-800">
+            <div className="grid grid-cols-[1.5fr_1fr_1.2fr_1.2fr_1.2fr] border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/20">
+              <div className="px-6 py-5 text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">Platform</div>
+              <div className="px-6 py-5 text-center text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">Notifies Customer</div>
+              <div className="px-6 py-5 text-center text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">Self-Serve Fix</div>
+              <div className="px-6 py-5 text-center text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">Carrier Assembly</div>
+              <div className="px-6 py-5 text-right text-[11px] font-black uppercase tracking-widest text-zinc-900 dark:text-white">Pricing Model</div>
             </div>
             {COMPARISON.map((row, idx) => (
               <div
                 key={row.name}
-                className={`grid grid-cols-[1.4fr_1fr_1fr] items-center ${idx !== COMPARISON.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800' : ''} ${row.highlight ? 'bg-[#FDF2F7] dark:bg-pink-950/20' : 'bg-white dark:bg-zinc-950'}`}
+                className={`grid grid-cols-[1.5fr_1fr_1.2fr_1.2fr_1.2fr] items-center ${idx !== COMPARISON.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800/60' : ''} ${row.highlight ? 'bg-[#FDF2F7] dark:bg-pink-950/20' : 'bg-white dark:bg-zinc-950'} hover:bg-zinc-50/50 dark:hover:bg-zinc-900/30 transition-colors`}
               >
-                <div className={`px-6 py-4 text-[15px] flex items-center ${row.highlight ? 'font-bold text-zinc-900 dark:text-white' : 'font-medium text-zinc-600 dark:text-zinc-300'}`}>
-                  {row.color && <span className="mr-3 inline-block size-2.5 rounded-full" style={{ backgroundColor: row.color }} />}
+                <div className={`px-6 py-5 text-[16px] flex items-center gap-3 ${row.highlight ? 'font-black text-zinc-950 dark:text-white text-lg' : 'font-extrabold text-zinc-700 dark:text-zinc-200'}`}>
+                  {row.domain && (
+                    <div className="size-6 overflow-hidden rounded-md bg-white border border-zinc-100 dark:border-zinc-800 shadow-sm flex items-center justify-center shrink-0">
+                      <Image 
+                        src={`https://logo.clearbit.com/${row.domain}`} 
+                        alt={row.name} 
+                        width={24} 
+                        height={24} 
+                        className="object-contain p-0.5"
+                        unoptimized
+                      />
+                    </div>
+                  )}
+                  {row.highlight && !row.domain && (
+                    <div className="size-6 rounded-md bg-[#E33B76] shrink-0 flex items-center justify-center">
+                      <span className="text-white text-[10px] font-black">R</span>
+                    </div>
+                  )}
+                  {!row.domain && !row.highlight && (
+                    <div className="size-6 shrink-0" />
+                  )}
                   {row.name}
                 </div>
-                <div className="px-6 py-4"><Cell ok={row.notifies} /></div>
-                <div className="px-6 py-4"><Cell ok={row.selfServe} /></div>
+                <div className="px-6 py-5"><Cell ok={row.notifies} /></div>
+                <div className="px-6 py-5"><Cell ok={row.selfServe} /></div>
+                <div className="px-6 py-5"><Cell ok={row.assembly} /></div>
+                <div className={`px-6 py-5 text-right text-[13px] ${row.highlight ? 'font-black text-[#E33B76]' : 'font-semibold text-zinc-500'}`}>
+                  {row.pricing}
+                </div>
               </div>
             ))}
           </div>
-          <p className="mt-3 text-center text-xs text-muted-foreground/70">
+          <p className="mt-4 text-center text-xs text-zinc-400">
             &ldquo;Customer self-serve fix&rdquo; means the customer&apos;s own input (address, window, pickup
-            choice) is what gets prepared for submission, not an ops or automation decision made for them.
+            choice) is what gets prepared for submission. &ldquo;Carrier Assembly&rdquo; means a ready-to-submit correction packet is generated.
           </p>
         </Reveal>
 
