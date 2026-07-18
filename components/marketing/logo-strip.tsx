@@ -17,13 +17,13 @@ export function LogoStrip() {
         <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="animate-marquee flex w-max shrink-0 items-center gap-x-12">
             {[...LOGOS, ...LOGOS, ...LOGOS, ...LOGOS].map((logo, i) => (
-              <div key={`${logo.name}-${i}`} className="flex h-14 items-center justify-center shrink-0 group cursor-pointer bg-white rounded-xl border border-zinc-200 px-4 shadow-sm dark:bg-white dark:border-none">
+              <div key={`${logo.name}-${i}`} className="flex h-16 items-center justify-center shrink-0 group cursor-pointer bg-white rounded-xl px-2 dark:bg-white">
                 <Image 
                   src={logo.src} 
                   alt={logo.name} 
                   width={140} 
-                  height={40} 
-                  className="h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                  height={48} 
+                  className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
                   unoptimized
                 />
               </div>
