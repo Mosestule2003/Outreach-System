@@ -139,6 +139,28 @@ export function PillarsSection() {
                   color="amber"
                 />
               </div>
+              <div className="mt-8 pt-8 border-t border-border/50">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">
+                  Ingesting real-time data from
+                </p>
+                <div className="grid grid-cols-4 gap-3 sm:gap-4">
+                  {[
+                    { name: 'Shopify', src: '/logos/Shopify Logo.jpg' },
+                    { name: 'Canada Post', src: '/logos/Canada Post.jpg' },
+                    { name: 'UPS', src: '/logos/UPS.png' },
+                    { name: 'Intelcom', src: '/logos/Intercom.png' },
+                    { name: 'Purolator', src: '/logos/Purulator.png' },
+                    { name: 'Canpar', src: '/logos/Canpar.png' },
+                    { name: 'Loomis', src: '/logos/Loomis Express.png' },
+                    { name: 'FedEx', src: '/logos/fedex-color.svg' },
+                  ].map((logo) => (
+                    <div key={logo.name} className="flex h-10 items-center justify-center rounded-lg border border-zinc-200 bg-white shadow-sm p-1.5 dark:bg-white dark:border-none">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={logo.src} alt={logo.name} className="h-full w-full object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <GrainPanel color="amber" className="rounded-xl p-3 sm:p-6">
               <WorkflowDiagram />
