@@ -28,9 +28,9 @@ export function WorkflowDiagram() {
           />
           <circle 
             cx="434" cy="170" r="3.5" 
-            fill="white" className="dark:fill-zinc-950"
-            stroke="currentColor" className="text-blue-500/80 dark:text-blue-400/80" 
-            strokeWidth="1.5" 
+            fill="white" className="dark:fill-zinc-950 text-blue-500/80 dark:text-blue-400/80"
+            stroke="currentColor"
+            strokeWidth="1.5"
           />
           <path 
             d="M 408 166 L 400 170 L 408 174" 
@@ -46,9 +46,9 @@ export function WorkflowDiagram() {
           />
           <circle 
             cx="200" cy="170" r="3.5" 
-            fill="white" className="dark:fill-zinc-950"
-            stroke="currentColor" className="text-blue-500/80 dark:text-blue-400/80" 
-            strokeWidth="1.5" 
+            fill="white" className="dark:fill-zinc-950 text-blue-500/80 dark:text-blue-400/80"
+            stroke="currentColor"
+            strokeWidth="1.5"
           />
           <path 
             d="M 180 166 L 172 170 L 180 174" 

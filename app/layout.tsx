@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     template: '%s · Rezlv',
   },
   description:
-    'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier. No CS ticket, no manual work.',
+    'Rezlv detects failed Shopify deliveries, texts the Canadian customer a fix-it link, and hands your team a ready-to-submit carrier correction. No CS ticket, no manual work chasing the fix.',
   keywords: [
     'exception resolution orchestration',
     'delivery exception automation',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     'NDR automation',
     'RTO prevention',
     'return to sender prevention',
-    'UPS delivery intercept API',
-    'USPS address correction API',
+    'Canada Post exception management',
+    'UPS Canada exception management',
     'Shopify fulfillment automation',
-    'DTC shipping software',
+    'Canadian DTC shipping software',
     'WISMO deflection',
     'carrier exception management',
     'address correction automation',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     'CS ticket deflection',
     'rezlv',
     'rezlv.com',
-    'Shopify DTC operations software',
+    'Canadian Shopify DTC operations software',
     'delivery recovery automation',
   ],
   authors: [{ name: 'Rezlv', url: SITE_URL }],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
     languages: {
-      'en-US': SITE_URL,
+      'en-CA': SITE_URL,
       'x-default': SITE_URL,
     },
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     siteName: 'Rezlv',
     title: 'Rezlv: Delivery exceptions, automatically resolved',
     description:
-      'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier. No CS ticket, no manual work.',
+      'Rezlv detects failed Shopify deliveries, texts the Canadian customer a fix-it link, and hands your team a ready-to-submit carrier correction. No CS ticket, no manual work chasing the fix.',
     images: [
       {
         url: '/hero.webp',
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
         alt: 'Rezlv: Exception Resolution Orchestration for Shopify DTC brands',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_CA',
   },
   twitter: {
     card: 'summary_large_image',
@@ -90,7 +90,7 @@ export const metadata: Metadata = {
     creator: '@rezlv',
     title: 'Rezlv: Delivery exceptions, automatically resolved',
     description:
-      'Rezlv detects failed Shopify deliveries, texts the customer a fix-it link, and pushes the correction straight to the carrier.',
+      'Rezlv detects failed Shopify deliveries, texts the Canadian customer a fix-it link, and hands your team a ready-to-submit carrier correction.',
     images: ['/hero.webp'],
   },
   robots: {
